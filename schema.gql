@@ -1,0 +1,8 @@
+type Journal {
+    title : String!,
+    article: String!,
+}
+
+type Query {
+  all_journals : [Journal!]!
+}

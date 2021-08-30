@@ -1,32 +1,21 @@
 import React from 'react'
+import { Nav } from '../components/Nav'
+import { HeroSection } from '../components/HeroSection'
+import {ContentSection} from '../components/ContentSection'
+import {Footer}  from '../components/Footer'
+import { TechSection } from '../components/TechSection'
 
-
-
-export const Index = ({journals}) => {
-  return(
-    <>
-    {journals.map(journal => (
-      <div key={journal.ts}>
-    <div><h1>{journal.data.title}</h1></div>
-    <p>{journal.data.article}</p>
-    </div>
-    ))}
+export const Homepage = () => {
+  return (<>
+      <main className="dark:bg-gray-800 font-mitr bg-white relative overflow-hidden">
+        <Nav />
+        <HeroSection />
+        <ContentSection />
+        <TechSection />
+        <Footer />
+      </main>
     </>
   )
 }
 
-
-
-export const getStaticProps = async () => {
-  const res = await fetch('http://localhost:3000/api/journals/')
-    const data = await res.json();
-    
-  return {
-    props: {
-      journals: data,
-    }
-  }
-}
-
-
-export default Index;
+export default Homepage;
