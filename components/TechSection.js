@@ -22,7 +22,7 @@ export const TechSection = () => {
                                     href="#"
                                     className="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
                                 >
-                                    Let's talk
+                                    Let&apos;s talk
                                 </a>
                             </div>
                             <div className="mt-3 sm:mt-0 sm:ml-3">
