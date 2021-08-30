@@ -10,10 +10,6 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider>
       <ApolloProvider client={client}>
         <Component {...pageProps} />
-        <ReactAudioPlayer
-          src="/assets/audio/Snowball.mp3"
-          autoPlay={true}
-        />
       </ApolloProvider>
     </ThemeProvider>
 
