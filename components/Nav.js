@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import {Toggle} from '../components/Toggle'
 export const Nav = () => {
@@ -14,21 +15,25 @@ export const Nav = () => {
             </div>
             <div className="flex items-center">
                 <nav className=" text-gray-800 dark:text-white uppercase text-normal lg:flex items-center hidden">
-                    <a href="#" className="py-2 px-6 flex hover:text-gray-400">
-                        Works
-                    </a>
-                    <a href="#" className="py-2 px-6 flex hover:text-gray-400">
-                        Resume
-                    </a>
-                    <a href="#" className="py-2 px-6 flex hover:text-gray-400">
-                        Services
-                    </a>
-                    <a href="#" className="py-2 px-6 flex hover:text-gray-400">
-                        Blog
-                    </a>
-                    <a href="#" className="py-2 px-6 flex hover:text-gray-400">
-                        Contact
-                    </a>
+                    <div className="py-2 px-6 flex hover:text-gray-400">
+                        <Link href={'#'} >Work</Link>
+                    </div>
+
+                    <div className="py-2 px-6 flex hover:text-gray-400">
+                        <Link href={'#'} >Resume</Link>
+                    </div>
+                    <div className="py-2 px-6 flex hover:text-gray-400">
+                        <Link href={'#'} >Services</Link>
+                    </div>
+                    <div className="py-2 px-6 flex hover:text-gray-400">
+                        <Link href={'#'} >Projects</Link>
+                    </div>
+                    <div className="py-2 px-6 flex hover:text-gray-400">
+                        <Link href={'#'} >Blog</Link>
+                    </div>
+                    <div className="py-2 px-6 flex hover:text-gray-400">
+                        <Link href={'#'} >Contact</Link>
+                    </div>
                 </nav>
                 <Toggle />
                 <button className="lg:hidden flex flex-col ml-4">

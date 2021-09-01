@@ -13,7 +13,7 @@ export const ContentSection = () => {
                         <p className="text-base leading-6 text-indigo-500 font-semibold uppercase my-8 md:my-4">
                             Interactivity matters
                         </p>
-                        <h4 className="font-archivo text-3xl font-extrabold mt-2 text-left leading-8 sm:text-3xl sm:leading-9  bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500">
+                        <h4 className="font-archivo text-3xl font-extrabold mt-2 text-left leading-8 sm:text-3xl sm:leading-9  bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-yellow-400 to-yellow-600">
                             Interactivity between team members is the key I need to help you unlock some really cool stuffs relating to your business growth.
                         </h4>
                         <p className="mt-4 text-lg leading-6 text-gray-500 text-left dark:text-gray-300">

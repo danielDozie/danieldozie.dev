@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { FooterTop } from './FooterTop';
 export const TechSection = () => {
     return (
         <>
@@ -39,6 +40,7 @@ export const TechSection = () => {
                     <TechLogos />
                 </div>
             </div>
+            <FooterTop/>
         </>
     )
 }
@@ -124,5 +126,6 @@ export default function TechLogos() {
                 <p className="text-purple-400 text-sm">The plan is to seamlessly translate your ideas into real world applications.</p>
             </div>
         </div>
+
     );
 }
