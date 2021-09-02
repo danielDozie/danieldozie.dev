@@ -11,30 +11,33 @@ export const FooterTop = () => {
             description: 'React is a free and open-source front-end JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications.',
         },
         {
-            name: 'next',
-            color: 'bg-purple-300',
-            title: 'Hello Ma\'am Whats up',
-        },
-        {
-            name: 'vercel',
+            name: 'react',
             color: 'bg-purple-500',
-            title: 'Hovering over town in the night',
+            title: 'Another one',
+            description: 'React is a free and open-source front-end JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications.',
         },
         {
-            name: 'more',
-            color: 'bg-yellow-500',
-            title: 'Because you love me',
-        }];
+            name: 'react',
+            color: 'bg-purple-500',
+            title: 'Another one',
+            description: 'React is a free and open-source front-end JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications.',
+        },
+        {
+            name: 'react',
+            color: 'bg-purple-500',
+            title: 'Another one',
+            description: 'React is a free and open-source front-end JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications.',
+        }]
     return (
         <>
-            <div className="max-w-7xl mx-auto md:py-8 sm:px-6 lg:py-16">
+            <div className="max-w-7xl mx-auto md:py-8 sm:px-6 lg:py-16 h-full">
                 <div className="flex flex-col justify-start mb-4 md:mb-8 mx-8 md:mx-0">
                     <h1 className="font-archivo text-4xl  font-semibold text-left bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-yellow-400 to-yellow-800 mt-20 md:mt-0">Yeah! I&apos;ve got a blog too</h1>
                     <p className="text-pink-500 text-sm pt-2 dark:text-gray-300">Catch up with some really cool posts on the latest tech trends</p>
                 </div>
 
-                <div className="mx-auto md:mb-24">
-                    <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mt-0 lg:grid-cols-2 h-96 p-4 md:p-10 ">
+                <div>
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:mt-0 lg:grid-cols-2  p-4 md:p-10 ">
                         {Icons.map(({ name, title, description, index }) => (
                             <div className={`flex flex-col md:flex-row md:justify-between py-4 px-4 rounded-lg shadow-2xl  dark:border-gray-600 bottom-2`} key={index}>
                                 <div className="flex h-full bg-center w-full mr-8 mb-4 ">
@@ -54,6 +57,9 @@ export const FooterTop = () => {
                             </div>
                         ))}
                     </div>
+                    </div>
+                    <div className="justify-center text-center py-8 md:py-0 md:pt-16">
+                        <button className="px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Load More...</button>
                     </div>
                 </div>
         </>

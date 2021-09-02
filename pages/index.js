@@ -13,11 +13,6 @@ export const Homepage = () => {
         <HeroSection />
         <ContentSection />
         <TechSection />
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <br /><br /><br /><br /><br /><br /><br />
         <Footer />
       </main>
     </>

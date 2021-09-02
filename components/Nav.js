@@ -7,11 +7,14 @@ export const Nav = () => {
     <>
     <header className="h-24 flex items-center w-full bg-transparent z-40 fixed backdrop-filter backdrop-blur-lg">
         <div className="container mx-auto px-6 flex items-center justify-between">
-            <div className="uppercase text-gray-800 dark:text-white font-black text-3xl flex items-center font-archivo ">
+            <div className="uppercase  font-black text-3xl flex items-center font-archivo">
                 <Image className="border-2" src={'/assets/images/headIcon.svg'} height={40} width={42} alt={'logo'}/>
-                <span className="text-md ml-1 mt-1 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-                    Badt-0-men
+                <div className="flex flex-col">
+                <span className="text-md ml-4 mt-1 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+                    C.D.E
                 </span>
+                <span className="font-mitr capitalize font-light text-xs bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">chidozie Daniel Eluchie</span>
+                </div>
             </div>
             <div className="flex items-center">
                 <nav className=" text-gray-800 dark:text-white uppercase text-normal lg:flex items-center hidden">

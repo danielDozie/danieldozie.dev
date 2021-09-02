@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import { FooterTop } from './FooterTop';
 export const TechSection = () => {
     return (
         <>
@@ -12,9 +11,9 @@ export const TechSection = () => {
                 <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center flex flex-col-reverse">
                     <div>
                         <h2 className="font-archivo text-3xl font-extrabold sm:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-purple-800 mt-20 md:mt-0">
-                            There are plenty technologies and tools out there, but I always opt for the best seamless tools & technologies to make our lives easier.
+                            There&apos;s just alot of technologies out there. But I always opt for the best seamless solutions to make my client&apos;s life easier...
                         </h2>
-                        <p className="mt-3 max-w-3xl text-lg text-gray-500">
+                        <p className="mt-3 max-w-3xl text-lg text-gray-500 dark:text-gray-200">
                             Honestly, I am constantly evolving my offering to include the touch points of tomorrow, deploying new technologies to help brands engage strategically with customers. 
                         </p>
                         <div className="mt-8 sm:flex">
@@ -40,7 +39,6 @@ export const TechSection = () => {
                     <TechLogos />
                 </div>
             </div>
-            <FooterTop/>
         </>
     )
 }
