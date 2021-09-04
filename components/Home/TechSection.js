@@ -113,7 +113,7 @@ export default function TechLogos() {
             <div>
                 <div className="mt-8 grid grid-cols-3 gap-2 md:grid-cols-3 lg:mt-0 lg:grid-cols-3">
                     {Icons.map(({name, color, index}) => (
-                        <div className={`col-span-1 flex justify-center py-4 px-4 ${color} rounded-lg bg-opacity-10`} key={index}>
+                        <div className={`col-span-1 flex justify-center py-4 px-4 ${color} rounded-lg bg-opacity-10`} key={name}>
                             <Image src={'/assets/images/particles/' + `${name}` + '.svg'} width={100} height={80} className="" alt={name} />
                         </div>
                     ))}

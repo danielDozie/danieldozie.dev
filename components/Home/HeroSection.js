@@ -1,11 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
-import {BGParticles} from './BGParticles'
+import {BGParticles} from '../BGParticles'
 
 export const HeroSection = () => {
     return (
         <>
-        {/* <BGParticles /> */}
             <div className="flex z-20 items-center mt-40">
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center relative py-4 ">
                 

@@ -14,7 +14,7 @@ export const ContentSection = () => {
                             Interactivity matters
                         </p>
                         <h4 className="font-archivo text-3xl font-extrabold mt-2 text-left leading-8 sm:text-3xl sm:leading-9  bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-yellow-400 to-yellow-600">
-                            Interactivity between team members is the key I need to help you unlock some really cool stuffs relating to your business growth.
+                            Interactivity between team members is the key one needs to unlock some really cool stuffs relating to one&apos;s business growth.
                         </h4>
                         <p className="mt-4 text-lg leading-6 text-gray-500 text-left dark:text-gray-300">
                             What I try to do is, try to work with you and your team to create a plan that will work for your business, your goals, and your <b>budget</b>. To me, there is no “<span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">one-size-fits-all</span>” approach to the web and I am here to help you sift through the noise. <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">◎[▪‿▪]◎</span>

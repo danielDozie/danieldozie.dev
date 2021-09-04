@@ -1,7 +1,5 @@
 /* eslint-disable react/display-name */
 
-import { FooterTop } from "./FooterTop"
-
 /* This example requires Tailwind CSS v2.0+ */
 const navigation = [
     {
@@ -56,17 +54,18 @@ const navigation = [
 
 
 export const Footer = () => {
+    
     return (
         <>
-        <FooterTop />
+            
             <div className="max-w-7xl flex flex-col mb-8 mx-auto mt-8 px-4 sm:px-6 md:flex md:items-center md:justify-center lg:px-8">
                 <div className="flex justify-center space-x-8 md:py-8">
-                    {navigation.map((item, index) => (
-                        <div key={index}>
-                        <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
-                            <span className="sr-only">{item.name}</span>
-                            <item.icon className="h-6 w-6" aria-hidden="true" />
-                        </a>
+                    {navigation.map((item) => (
+                        <div key={item.name}>
+                            <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
+                                <span className="sr-only">{item.name}</span>
+                                <item.icon className="h-6 w-6" aria-hidden="true" />
+                            </a>
                         </div>
                     ))}
                 </div>

@@ -1,21 +1,21 @@
 import React from 'react'
-import { Nav } from '../components/Nav'
-import { HeroSection } from '../components/HeroSection'
-import {ContentSection} from '../components/ContentSection'
-import {Footer}  from '../components/Footer'
-import { TechSection } from '../components/TechSection'
-import { FooterTop } from '../components/FooterTop'
+import { HeroSection } from '../components/Home/HeroSection'
+import {ContentSection} from '../components/Home/ContentSection'
+import { TechSection } from '../components/Home/TechSection'
+import {HomeBlogSection} from '../components/Home/HomeBlogSection'
+import Head from 'next/head'
 
 export const Homepage = () => {
-  return (<>
-      <main className="dark:bg-gray-800 font-mitr bg-white relative overflow-hidden">
-        <Nav />
+  return (
+        <>
+        <Head>
+          <title>{process.env.siteTitle}</title>
+        </Head>
         <HeroSection />
         <ContentSection />
         <TechSection />
-        <Footer />
-      </main>
-    </>
+        <HomeBlogSection />
+        </>
   )
 }
 
