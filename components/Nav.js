@@ -79,7 +79,6 @@ export const MobileIcon = () => {
                                 <Icon className="text-4xl text-gray-800 dark:text-gray-200" icon="eva:close-fill" onClick={closeMenu} />
                             </div>
                         </div>
-                        <div>
                             <div className="uppercase font-black text-3xl flex items-center font-archivo justify-center -mt-4">
                                 <Image className="border-2" src={'/assets/images/headIcon.svg'} height={40} width={42} alt={'logo'} />
                                 <div className="flex flex-col">
@@ -89,18 +88,15 @@ export const MobileIcon = () => {
                                     <span className="font-mitr capitalize font-light text-xs bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">chidozie Daniel Eluchie</span>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </Dialog.Title>
                 <Dialog.Description>
                     <nav className="font-mitr text-gray-800 dark:text-gray-200 uppercase font-normal text-xl mt-8">
-                        {menuItems.map(mobile => (
-                            <div>
-                            <div className="py-2 flex hover:text-gray-400 justify-center text-center align-center" key={mobile.name}>
-                                <Link>
-                                {mobile.name}
+                        {menuItems.map(mobileMenu => (
+                            <div onClick={closeMenu} className="py-2 flex hover:text-gray-400 justify-center text-center align-center" key={mobileMenu.name}>
+                                <Link href={mobileMenu.href}>
+                                {mobileMenu.name}
                                 </Link>
-                            </div>
                             </div>
                         ))}
                     </nav>
