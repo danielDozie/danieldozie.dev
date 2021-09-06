@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react'
 
 const Index = () => {
@@ -8,9 +9,10 @@ const Index = () => {
 
                     <div className="flex flex-col">
                         <p className="font-mitr text-3xl my-6 text-center dark:text-white ">
-                        Page not found.
+                        Page not found
                         </p>
-                        <h2 className="max-w-3xl font-archivo text-4xl md:text-6xl font-bold mx-auto text-center py-2 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+                        <Image className=" flex " src={'/assets/images/404_2.svg'} height={250} width={150} alt="404"/>                     
+                        <h2 className="max-w-3xl mt-4 font-archivo text-4xl md:text-6xl font-bold mx-auto text-center py-2 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
                             The Page you seek is not ready yet chief.
                         </h2>
                     </div>
