@@ -23,7 +23,7 @@ export default function About() {
                             <div className="rounded-md shadow">
                                 <a
                                     href="#"
-                                    className="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+                                    className="flex items-center justify-center px-5 py-3 border border-transparent font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
                                 >
                                     Check out my Projects
                                 </a>

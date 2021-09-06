@@ -38,8 +38,8 @@ export const HomeBlogSection = () => {
 
                 <div>
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:mt-0 lg:grid-cols-2  p-4 md:p-10 ">
-                        {Icons.map(({ name, title, description, index }) => (
-                            <div className={`flex flex-col md:flex-row md:justify-between py-4 px-4 rounded-lg shadow-2xl  dark:border-gray-600 bottom-2`} key={index}>
+                        {Icons.map(({ name, title, description,i }) => (
+                            <div className={`flex flex-col md:flex-row md:justify-between py-4 px-4 rounded-lg shadow-2xl  dark:border-gray-600 bottom-2`} key={i}>
                                 <div className="flex h-full bg-center w-full mr-8 mb-4 ">
                                     <Image src={'/assets/images/happy.gif'} width={500} height={'300px'} className="rounded-lg" alt={name} />
 
