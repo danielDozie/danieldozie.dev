@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_HOMEPAGE } from '../graphQL/graphQueries'
 
-export const Journals:React.FC<any> = () => {
+export const Journals:React.FC = () => {
     const [journals, setJournals] = useState([]);
     const { loading, error, data } = useQuery(GET_HOMEPAGE);
     const result = data?.all_journals.data;
-
     useEffect(() => {
         if (loading) return "Loading...";
         if (error) return error;
