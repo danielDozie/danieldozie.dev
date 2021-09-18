@@ -11,7 +11,7 @@ class MyDocument extends Document {
       <Html lang='en'>
         <ThemeScriptTag />
         <Head>
-          <link rel="shortcut icon" href="" />
+        <link rel="shortcut icon" href="./favicon.ico" />
         </Head>
         <body>
           <Main />
