@@ -1,2 +1,2 @@
-Explicitly using Next.js + FaunaDB + FQL using Nextjs API route. 
-Graphql can be easily configured BUT, I MEAN, BUT FQL seem to have more advantage with communicating with the DB documents and collections.
+Building my portfolio using nextjs, faunadb (which gives me options of both REST API and GraphQL) and for the styling, I went with Tailwind and HeadlessUI.
+That's just it.
