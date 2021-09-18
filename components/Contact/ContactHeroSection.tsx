@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ContactHeroSection = () => {
+export const ContactHeroSection:React.FC = () => {
     return (
         <>
             <div className="flex z-20 items-center mt-40">

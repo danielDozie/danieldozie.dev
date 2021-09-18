@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Toggle } from "../components/Toggle";
+import { Toggle } from "./Toggle";
 import { Dialog } from "@headlessui/react";
 import { Icon } from "@iconify/react";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 const menuItems = [
   { name: "About Me", href: "/about", current: true },
@@ -18,7 +15,7 @@ const menuItems = [
   { name: "Contact", href: "/contact", current: false },
 ];
 
-export const Nav = () => {
+export const Nav: React.FC<any> = () => {
   return (
     <>
       <header className="h-24 flex items-center w-full bg-transparent z-40 fixed backdrop-filter backdrop-blur-lg">
@@ -51,8 +48,6 @@ export const Nav = () => {
                 >
                   <Link
                     href={item.href}
-                    className={classNames(item.current ? "text-gray-400" : "")}
-                    aria-current={item.current ? "page" : undefined}
                   >
                     {item.name}
                   </Link>

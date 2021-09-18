@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-export const ContentSection = () => {
+export const ContentSection:React.FC = () => {
     return (
         <div className="max-w-screen-xl p-4 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-20">
             <div className="relative">

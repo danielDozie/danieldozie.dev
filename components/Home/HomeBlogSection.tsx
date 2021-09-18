@@ -2,7 +2,15 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export const HomeBlogSection = () => {
+interface HomeBlogSectionProps {
+  id: number,
+  name: string,
+  color: string,
+  title: string,
+  description: string,
+}
+
+export const HomeBlogSection:React.FC <HomeBlogSectionProps> = () => {
   const Icons = [
     {
       id: 1,

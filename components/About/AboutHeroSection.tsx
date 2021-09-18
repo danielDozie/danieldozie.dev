@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import {BGParticles} from '../BGParticles'
 
-export const AboutHeroSection = () => {
+export const AboutHeroSection:React.FC = () => {
     return (
         <>
             <div className="flex z-20 items-center mt-40">

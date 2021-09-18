@@ -14,7 +14,7 @@ export const Homepage = () => {
         <HeroSection />
         <ContentSection />
         <TechSection />
-        <HomeBlogSection />
+        <HomeBlogSection id={0} name={''} color={''} title={''} description={''} />
         </>
   )
 }

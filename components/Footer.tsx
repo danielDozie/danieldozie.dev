@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
 
 /* This example requires Tailwind CSS v2.0+ */
+
 const navigation = [
     {
         name: 'Facebook',
@@ -53,7 +54,7 @@ const navigation = [
 ]
 
 
-export const Footer = () => {
+export const Footer : React.FC <any> = () => {
     
     return (
         <>
