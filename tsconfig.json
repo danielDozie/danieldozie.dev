@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/api/journals/index.js"  ],
+, "pages/api/journals/index.js", "components/Journals.jsx"  ],
   "exclude": [
     "node_modules"
   ]
