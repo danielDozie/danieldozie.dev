@@ -10,8 +10,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang='en'>
+        <ThemeScriptTag />
         <Head>
-         <ThemeScriptTag />
+          
         </Head>
         <body>
           <Main />
