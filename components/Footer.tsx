@@ -1,5 +1,4 @@
 /* eslint-disable react/display-name */
-
 /* This example requires Tailwind CSS v2.0+ */
 
 const navigation = [
