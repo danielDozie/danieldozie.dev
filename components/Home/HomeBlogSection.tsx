@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useHome } from "../../lib/store";
+import BlockContent from '@sanity/block-content-to-react'
+import {homeBlogSerializer} from '../../lib/serializers'
 
 interface HomeBlogSectionProps {
   id: number,
@@ -11,6 +14,14 @@ interface HomeBlogSectionProps {
 }
 
 export const HomeBlogSection:React.FC <HomeBlogSectionProps> = () => {
+  const homeBlog = useHome(state => state.homeBlog)
+  const setHomeBlog = useHome(state => state.setHomeBlog)
+  useEffect(() => {
+    setHomeBlog()
+  }, [homeBlog, setHomeBlog])
+  const content = homeBlog.section.block
+  
+  
   const Icons = [
     {
       id: 1,
@@ -49,14 +60,8 @@ export const HomeBlogSection:React.FC <HomeBlogSectionProps> = () => {
     <>
       <div className="max-w-7xl mx-auto md:py-8 sm:px-6 lg:py-16 h-full">
         <div className="flex flex-col justify-start mb-4 md:mb-8 mx-8 md:mx-0">
-          <h1 className="font-archivo text-4xl  font-semibold text-left bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-yellow-400 to-yellow-800 mt-20 md:mt-0">
-            Yeah! I&apos;ve got a blog too
-          </h1>
-          <p className="text-pink-500 text-sm pt-2 dark:text-gray-300">
-            Catch up with some really cool posts on the latest tech trends
-          </p>
+          <BlockContent blocks={content} serializers={homeBlogSerializer} />
         </div>
-
         <div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:mt-0 lg:grid-cols-2  p-4 md:p-10 ">
               {Icons.map(({ name, title, description, id }) => (
