@@ -1,9 +1,11 @@
 import React from 'react'
 
-export const Slug = () => {
+const Slug = (props) => {
     return (
         <div>
             
         </div>
     )
 }
+
+export default Slug;
