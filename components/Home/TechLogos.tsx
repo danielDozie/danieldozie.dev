@@ -1,7 +1,8 @@
+import {useEffect} from 'react'
 import Image from 'next/image'
 import { useHome } from '../../lib/store'
 import {urlFor} from '../../lib/dataQueries'
-import React, { useEffect } from 'react'
+
 
 export default function TechLogos() {
     const homeTechStack = useHome(state => state.homeTechStack)

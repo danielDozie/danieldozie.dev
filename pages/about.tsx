@@ -2,8 +2,8 @@ import {AboutHeroSection} from '../components/About/AboutHeroSection'
 import Head from 'next/head'
 
 
-export default function About() {
-
+export default function About(props) {
+    
     return (
         <>
         <Head>
