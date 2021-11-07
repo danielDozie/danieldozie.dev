@@ -25,18 +25,18 @@ export const TechSection:React.FC = () => {
                         <div className="mt-8 sm:flex">
                             <div className="rounded-md shadow">
                                 <a
-                                    href={homeTechStack[0]?.section.button[0].button_url}
+                                    href={homeTechStack[0].section.button[0]?.button_url}
                                     className="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
                                 >
-                                    {homeTechStack[0]?.section.button[0].button_text}
+                                    {homeTechStack[0]?.section.button[0]?.button_text}
                                 </a>
                             </div>
                             <div className="mt-3 sm:mt-0 sm:ml-3">
                                 <a
-                                    href={homeTechStack[0]?.section.button[1].button_url}
+                                    href={homeTechStack[0]?.section.button[1]?.button_url}
                                     className="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200"
                                 >
-                                    {homeTechStack[0]?.section.button[1].button_text}
+                                    {homeTechStack[0].section.button[1]?.button_text}
                                 </a>
                             </div>
                         </div>

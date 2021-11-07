@@ -33,26 +33,38 @@ export const useHome = create(set => ({
         const response = await homeHero
        response.forEach((item:any) => set({homeHero: item}))
     },
-    homeWork: {
+    homeWork: [{
         section: {
-            title: '',
-            content: '',
+            content: [],
             left_image: '',
+            title: '',
         }
-    },
+    }],
     setHomeWork: async () => {
         const response = await homeWork
         set({homeWork: response})
         
     },
-    homeTechStack: [],
+    homeTechStack: [
+        {
+            section: {
+                title: '',
+                subtitle: '',
+                content: [],
+                logo_icon: [],
+                logo_text: [],
+                button: []
+            }
+        }
+    ],
     setHomeTechStack: async () => {
         const response = await homeTechStack
         set({homeTechStack: response})
     },
     homeBlog: {
         section: {
-            block: {}
+            block: [],
+            custom_blogs: [],
         }
     },
     setHomeBlog: async () => {

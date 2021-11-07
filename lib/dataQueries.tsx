@@ -24,7 +24,7 @@ const logoQuery = `*[_type == "logo" ]{
 const logo = client.fetch(logoQuery)
 
 //menu Query
-const menuQuery = `*[_type == "menu" ]| order(_createdAt asc){
+const menuQuery = `*[_type == "menu" ]| order(order desc){
   _id,
   name,
   link{
@@ -61,7 +61,25 @@ const homeTechSection = `*[_type == 'pages' && title == 'Home']{
 const homeTechStack = client.fetch(homeTechSection)
 //home Blog
 const homeBlogSection = `*[_type == 'pages' && title == 'Home']{
-  section[3]
+  section[3]{
+    block,
+    custom_blogs[]->{
+      _createdAt,
+      _id,
+      title,
+      slug,
+      excerpts,
+      image{
+        asset -> {
+          url,
+        }
+      },
+      author->{
+      _id,
+      fullname,
+    }
+    }
+  }
 }`
 const homeBlog = client.fetch(homeBlogSection)
 

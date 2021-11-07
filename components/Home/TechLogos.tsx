@@ -24,8 +24,8 @@ export default function TechLogos() {
                 </div>
             </div>
             <div className="m-8 text-gray-600 justify-center text-center">
-                <h3 className="text-lg font-semi-bold text-purple-500">{homeTechStack[0]?.section.logo_text[0].children[0].text}</h3>
-                <p className="text-purple-400 text-sm">{homeTechStack[0]?.section.logo_text[1].children[0].text}</p>
+                <h3 className="text-lg font-semi-bold text-purple-500">{homeTechStack[0].section.logo_text[0]?.children[0].text}</h3>
+                <p className="text-purple-400 text-sm">{homeTechStack[0].section.logo_text[1]?.children[0].text}</p>
             </div>
         </div>
 

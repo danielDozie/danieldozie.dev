@@ -5,7 +5,7 @@ import { useHome } from '../../lib/store'
 const BlockContent = require('@sanity/block-content-to-react')
 import {homeSerializers} from '../../lib/serializers'
 import {urlFor} from '../../lib/dataQueries'
-import axios from 'axios'
+
 
 export const ContentSection:React.FC = () => {
     const homeWork = useHome(state => state.homeWork)
@@ -15,17 +15,6 @@ export const ContentSection:React.FC = () => {
     }, [homeWork, setHomeWork]) 
     const content = homeWork[0]?.section.content
     
-    // useEffect(() => {
-    //     const Fn = async () => {
-    //     const res =await axios.get(`http://localhost:3000/api/home`)
-    //     .then(response => response.data);
-    //     console.log(`This is coming from the API page:`)
-    //     console.log(res)
-    //     }
-        
-    //     Fn();
-    // })
-    
     return (
         <div className="max-w-screen-xl p-4 bg-white dark:bg-gray-800 mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-20">
             <div className="relative">
@@ -34,7 +23,7 @@ export const ContentSection:React.FC = () => {
             </div>
                 <div className="flex flex-col-reverse lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
                     <div className="lg:col-start-2 lg:max-w-2xl ml-auto text-center md:text-left">
-                        <BlockContent blocks={content} serializers={homeSerializers} />
+                        <BlockContent blocks={content} serializers={homeSerializers} />                        
                     </div>
                     <div className="mt-10 lg:-mx-4 relative relative-20 lg:mt-0 lg:col-start-1">
                         <div className="relative space-y-4">
