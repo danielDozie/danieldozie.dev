@@ -9,9 +9,8 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang='en'>
-        <ThemeScriptTag />
         <Head>
-        <link rel="shortcut icon" href="./favicon.ico" />
+           <ThemeScriptTag />
         </Head>
         <body>
           <Main />
