@@ -4,7 +4,7 @@ import React from 'react'
 const Index = () => {
     return (
         <>
-            <div className="flex z-20 items-center mt-40">
+            <div className="flex z-20 items-center mt-40 mb-10">
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-center items-center relative py-4 ">
 
                     <div className="flex flex-col">
