@@ -1,4 +1,3 @@
-import React from 'react'
 import { HeroSection } from '../components/Home/HeroSection'
 import {ContentSection} from '../components/Home/ContentSection'
 import { TechSection } from '../components/Home/TechSection'
@@ -9,13 +8,12 @@ export const Homepage = () => {
   return (
         <>
         <Head>
-          <title>{process.env.siteTitle}</title>
+          <title>{`Welcome`} - {process.env.siteTitle}</title>
         </Head>
         <HeroSection />
         <ContentSection />
         <TechSection />
         <HomeBlogSection id={0} name={''} color={''} title={''} description={''} />
-
         </>
   )
 }

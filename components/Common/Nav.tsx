@@ -29,7 +29,7 @@ export const Nav: React.FC<any> = () => {
                 <span className="text-md ml-4 mt-1 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
                   {siteLogo?.abbreviation}
                 </span>
-                <span className="font-mitr capitalize font-light text-xs bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+                <span className="font-mitr capitalize font-light text-xs bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 ml-4">
                   {siteLogo?.name}
                 </span>
               </div>
