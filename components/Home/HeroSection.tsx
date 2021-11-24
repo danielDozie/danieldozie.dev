@@ -3,6 +3,7 @@ import Image from 'next/image'
 import {useHome} from '../../lib/store'
 import {urlFor} from '../../lib/dataQueries'
 
+
 export const HeroSection:React.FC = () => {
     const homeHero = useHome(state => state.homeHero)
     const setHomeHero = useHome(state => state.setHomeHero)
@@ -34,4 +35,3 @@ export const HeroSection:React.FC = () => {
         </>
     )
 }
-

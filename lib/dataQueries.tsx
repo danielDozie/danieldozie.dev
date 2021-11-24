@@ -7,8 +7,6 @@ function urlFor(source) {
 }
 
 
-
-
 const defaultEx = 'Hello';
 
 //logo query
@@ -21,7 +19,7 @@ const logoQuery = `*[_type == "logo" ]{
     }
   }
 }`
-const logo = client.fetch(logoQuery)
+const logo:any = client.fetch(logoQuery)
 
 //menu Query
 const menuQuery = `*[_type == "menu" ]| order(order desc){
@@ -31,7 +29,7 @@ const menuQuery = `*[_type == "menu" ]| order(order desc){
   current
 }
 }`
-const menu = client.fetch(menuQuery)
+const menu:any = client.fetch(menuQuery)
 
 //BEGIN HOMEPAGE query
 //+++++++++++++++++//
@@ -47,12 +45,12 @@ const homeHeroSection = `*[_type == 'pages' && title == 'Home']{
   }
   },
   }`
-const homeHero = client.fetch(homeHeroSection);
+const homeHero:any = client.fetch(homeHeroSection);
 //Home work section
 const homeWorkSection = `*[_type == 'pages' && title == 'Home']{
   section[1]
 }`
-const homeWork = client.fetch(homeWorkSection);
+const homeWork:any = client.fetch(homeWorkSection);
 
 //Home TechStack
 const homeTechSection = `*[_type == 'pages' && title == 'Home']{
@@ -63,7 +61,7 @@ const homeTechStack = client.fetch(homeTechSection)
 const homeBlogSection = `*[_type == 'pages' && title == 'Home']{
   section[3]{
     block,
-    custom_blogs[]->{
+    custom_blogs[][0...2]->{
       _createdAt,
       _id,
       title,
@@ -81,33 +79,56 @@ const homeBlogSection = `*[_type == 'pages' && title == 'Home']{
     }
   }
 }`
-const homeBlog = client.fetch(homeBlogSection)
+const homeBlog:any = client.fetch(homeBlogSection)
 
 //END OF HOMEPAGE QUERIES
 
-
-
-
-
-//about query
-const aboutPageQuery = `*[_type == 'aboutPage']{
-  primaryHeading, 
-  secondaryHeading, 
-  content
+//About Me query
+const aboutMePageQuery = `*[_type == 'pages' && title == 'About me']{
+  title,
+  description,
+  section[],
+  slug{
+    current
+  },
 }`
-const aboutPage = client.fetch(aboutPageQuery)
+const aboutMePage = client.fetch(aboutMePageQuery)
+
+//Get in touch query
+const getInTouchQuery = `*[_type == 'pages' && title == 'Get in touch']{
+  title,
+  description,
+  section[],
+  slug{
+    current
+  },
+
+}`
+const getInTouchPage = client.fetch(getInTouchQuery)
+
+
 
 //blog query
 const blogQuery = `*[_type == 'blog']{
+  _createdAt,
   _id,
-  createdAt,
-  title,
-  slug,
+  author->{
+  _id,
+  fullname
+},
   content,
-  image,
+  excerpts,
+  image{
+  asset->{
+  url
+}
+},
+  slug,
+  title
+  
 }`
 const blog = client.fetch(blogQuery)
 
 //export data components
 export default defaultEx;
-export {homeHero, homeWork, homeTechStack,homeBlog, aboutPage, blog, urlFor, menu, logo, }
+export {homeHero, homeWork, homeTechStack,homeBlog, aboutMePage, getInTouchPage, blog, urlFor, menu, logo, }

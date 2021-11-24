@@ -7,7 +7,7 @@ import BlockContent from '@sanity/block-content-to-react'
 import {homeBlogSerializer} from '../../lib/serializers'
 import { urlFor } from "../../lib/dataQueries";
 import moment from "moment";
-import {FaEye} from 'react-icons/fa'
+
 interface HomeBlogSectionProps {
   id: number,
   name: string,
@@ -27,12 +27,14 @@ export const HomeBlogSection:React.FC <HomeBlogSectionProps> = () => {
 
   return (
     <>
-      <div className="max-w-7xl mx-auto md:py-8 sm:px-6 lg:py-16 h-full">
+      <div className="max-w-7xl mx-auto md:py-8 sm:px-6 h-full">
         <div className="flex flex-col justify-start mb-4 md:mb-8 mx-8 md:mx-0">
           <BlockContent blocks={content} serializers={homeBlogSerializer} />
         </div>
         <div>
+        {/* <h1 className={`font-archivo text-3xl font-extrabold sm:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-purple-800 text-center`}>Featured</h1> */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:mt-0 lg:grid-cols-2  p-4 md:p-10 ">
+            
               {Blogs.map(({ author,excerpts, image, slug, title, _createdAt, _id }) => (
                 <div
                   className={`flex flex-col md:flex-row md:justify-between py-4 px-4 rounded-lg shadow-2xl  dark:border-gray-600 bottom-2`}
@@ -72,14 +74,20 @@ export const HomeBlogSection:React.FC <HomeBlogSectionProps> = () => {
                 </div>
               ))}
             </div>
+            <Link href={`/blog`}>
+              <h1 className={`font-archivo font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-purple-800 mt-6 text-center lg:text-left lg:pl-10`}>
+                View all blog posts...
+                </h1>
+              </Link>
           </div>
         </div>
-        <div className="justify-center text-center py-8 md:py-0 md:pt-16">
-          <Link href={`/blog/`}>
-            <button className="px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
-              Load More...
+        <div className="justify-center text-center md:pt-16">
+          {/* <Link href={`/blog/`}>
+            <button className="px-5 py-1 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+              See All Posts
             </button>
-          </Link>
+          </Link> */}
+          
         </div>
     </>
   );

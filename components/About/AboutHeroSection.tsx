@@ -1,5 +1,12 @@
+import { useEffect } from "react"
+import { useAboutMePage } from "../../lib/store"
 
 export const AboutHeroSection:React.FC = () => {
+    const aboutMePage  = useAboutMePage(state => state.aboutMePage)
+    const setAboutMePage = useAboutMePage(state => state.setAboutMePage)
+    useEffect(() => {
+        setAboutMePage()
+    }, [setAboutMePage])
     
     return (
         <>
@@ -8,13 +15,12 @@ export const AboutHeroSection:React.FC = () => {
 
                     <div className="flex flex-col">
                         <p className="font-mitr text-3xl my-6 text-center dark:text-white">
-                            Feels really good to have you here chief.
+                            {aboutMePage?.section[0]?.secondaryHeading}
                         </p>
                         <h2 className="max-w-3xl font-archivo text-4xl md:text-6xl font-bold mx-auto text-center py-2 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-                            Here&apos;s the deal. <br/> I am just a guy who loves to create pretty stuffs.
+                            {aboutMePage?.section[0]?.primaryHeading}
                         </h2>
                     </div>
-
                 </div>
             </div>
         </>

@@ -1,6 +1,6 @@
 module.exports = {
     env:{
-        siteTitle: "Chidozie Daniel Eluchie",
+        siteTitle: "Daniel Dozie",
     },
     images: {
 		domains: ['cdn.sanity.io']

@@ -1,5 +1,5 @@
 import create from 'zustand'
-import {homeHero, menu, logo, homeWork, homeTechStack, homeBlog} from '../lib/dataQueries'
+import {homeHero, menu, logo, homeWork, homeTechStack, homeBlog, aboutMePage, getInTouchPage, blog} from '../lib/dataQueries'
 
 export const useHeader = create(set => ({
     //logo state
@@ -70,5 +70,38 @@ export const useHome = create(set => ({
     setHomeBlog: async () => {
         const response = await homeBlog
         response.forEach((item: any) => set({homeBlog: item}))
+    },
+}))
+
+export const useAboutMePage = create(set => ({ 
+    aboutMePage: {
+        title: '',
+        section: {
+            block: [],
+        },
+    },
+    setAboutMePage: async () => {
+        const response = await aboutMePage
+        response.forEach((item: any) => set({aboutMePage: item}))
+    }
+}))
+
+export const useGetInTouchPage = create(set => ({ 
+    getInTouchPage: {
+        title: '',
+        description: '',
+        section: {},
+    },
+    setGetInTouchPage: async () => {
+        const response = await getInTouchPage
+        response.forEach((item: any) => set({getInTouchPage: item}))
+    }
+}))
+
+export const useBlog = create(set => ({
+    blogs: [],
+    setBlogs: async () => {
+        const response = await blog
+        set({blogs: response})
     }
 }))
