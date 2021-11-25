@@ -1,21 +1,9 @@
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable @next/next/link-passhref */
 import moment from 'moment'
 import Link from 'next/link'
 import Image from 'next/image'
-import React, { useEffect } from 'react'
 import { urlFor } from '../../lib/dataQueries'
-import { useBlog } from '../../lib/store'
-import BlockContent from '@sanity/block-content-to-react'
 
-export const BlogPosts = () => {
-    const blogs = useBlog(state => state.blogs)
-    const setBlogs = useBlog(state => state.setBlogs)
-    
-    useEffect(() => {
-        setBlogs()
-    }, [setBlogs])
-    console.log(blogs)
+export const BlogPosts = (props: { data: { author: any; excerpts: any; image: any; slug: any; title: any; _createdAt: any; _id: any }[] }) => {
     return (
         <>
       <div className="max-w-5xl mx-auto md:py-8 sm:px-6 lg:py-16 h-full">
@@ -23,7 +11,7 @@ export const BlogPosts = () => {
         </div>
         <div>
           <div className="grid grid-cols-1 lg:gap-16 md:gap-8 md:grid-cols-1 lg:mt-0 lg:grid-cols-1  p-4 md:p-10">
-              {blogs.map(({ author,excerpts, image, slug, title, _createdAt, _id }) => (
+              {props.data.map(({ author,excerpts, image, slug, title, _createdAt, _id }) => (
                 <div
                   className={`flex flex-col md:flex-row md:justify-between py-4 px-4 rounded-lg shadow-2xl  dark:border-gray-600 bottom-2 lg:my-0 my-7`}
                   key={_id}

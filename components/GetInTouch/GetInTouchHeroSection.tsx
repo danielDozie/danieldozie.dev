@@ -1,13 +1,8 @@
-import React, { useEffect } from 'react'
-import { useGetInTouchPage } from '../../lib/store'
-
-export const GetInTouchHeroSection:React.FC = () => {
-    const getInTouchPage = useGetInTouchPage(state => state.getInTouchPage)
-    const setGetInTouchPage = useGetInTouchPage(state => state.setGetInTouchPage)
-    useEffect(() => {
-        setGetInTouchPage()
-    }, [setGetInTouchPage])
-    
+interface Heading {
+    secondaryHeading:string;
+    primaryHeading:string;
+}
+export const GetInTouchHeroSection = (props:Heading) => {
     return (
         <>
             <div className="flex z-20 items-center mt-40">
@@ -15,10 +10,10 @@ export const GetInTouchHeroSection:React.FC = () => {
 
                     <div className="flex flex-col">
                         <p className="font-mitr text-3xl my-6 text-center dark:text-white ">
-                        {getInTouchPage?.section[0]?.secondaryHeading}
+                        {props.secondaryHeading}
                         </p>
                         <h2 className="max-w-3xl font-archivo text-4xl md:text-6xl font-bold mx-auto text-center py-2 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-                        {getInTouchPage?.section[0]?.primaryHeading}
+                        {props.primaryHeading}
                         </h2>
                     </div>
                 </div>

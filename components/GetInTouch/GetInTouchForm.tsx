@@ -96,8 +96,8 @@ export const GetInTouchForm: React.FC = () => {
                                     <Field className="py-2 pl-2 rounded-sm shadow-lg border mb-8" id="subject" name="subject" placeholder="Subject Line" validate={subject} />
                                     <Field component="textarea" className="py-2 pl-2  rounded-sm shadow-lg border h-36 mb-8" id="message" name="message" placeholder="This is the message box" validate={message} />
                                     {errors.message && touched.message && <div className="text-xs text-red-500 py-2 pl-2">{errors.message}</div>}
-                                    <div className="w-52 justify-center items-center ml-16 md:ml-28 mb-8">
-                                        <input type="submit" value={sendValue} onClick={ () => {validateForm; setSendValue('Sending...')} } className="flex justify-center w-full px-5 py-2 border border-transparent text-sm rounded-md text-white bg-indigo-600 hover:bg-indigo-700" />
+                                    <div className="flex justify-center items-center mb-8">
+                                        <input type="submit" value={sendValue} onClick={ () => {validateForm; setSendValue('Sending...')} } className="px-5 py-2 border border-transparent text-sm rounded-md text-white bg-indigo-600 hover:bg-indigo-700" />
                                     </div>
                                     <p className="flex text-xs justify-center items-center text-green-500">{success}</p>
                                 </div>

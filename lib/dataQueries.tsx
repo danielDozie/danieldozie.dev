@@ -1,8 +1,9 @@
 import imageUrlBuilder from '@sanity/image-url'
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import client from './sanityClient'
 
 const builder = imageUrlBuilder(client)
-function urlFor(source) {
+function urlFor(source: SanityImageSource) {
   return builder.image(source)
 }
 
@@ -31,37 +32,62 @@ const menuQuery = `*[_type == "menu" ]| order(order desc){
 }`
 const menu:any = client.fetch(menuQuery)
 
-//BEGIN HOMEPAGE query
-//+++++++++++++++++//
-//home heroSection
-const homeHeroSection = `*[_type == 'pages' && title == 'Home']{
-  section[0]{
-    primaryHeading,
-    secondaryHeading,
-    image{
-    asset->{
-    url
-  }
-  }
-  },
-  }`
-const homeHero:any = client.fetch(homeHeroSection);
-//Home work section
-const homeWorkSection = `*[_type == 'pages' && title == 'Home']{
-  section[1]
+const logoAndMenuQuery = `{
+  'Logo':*[_type == 'logo']{
+  name,
+  abbreviation,
+  icon{
+  asset->{
+  url
+ }
+ }
+ }, 'Menu': *[_type == "menu" ]| order(order desc){
+   _id,
+   name,
+   link{
+   current
+ }
+ }
 }`
-const homeWork:any = client.fetch(homeWorkSection);
+const logoAndMenu = client.fetch(logoAndMenuQuery)
 
-//Home TechStack
-const homeTechSection = `*[_type == 'pages' && title == 'Home']{
-  section[2]
-}`
-const homeTechStack = client.fetch(homeTechSection)
-//home Blog
-const homeBlogSection = `*[_type == 'pages' && title == 'Home']{
-  section[3]{
-    block,
-    custom_blogs[][0...2]->{
+
+//New Home query
+const newHomeQuery = `*[_type == 'pages' && title == 'Home']{
+  title,
+description,
+slug{
+current,
+},
+'HeroSection':section[0]{
+primaryHeading,
+  secondaryHeading,
+  image{
+  asset->{
+  url
+}
+}
+},
+'WorkSection':section[1]{
+title,
+left_image{
+asset->{
+url,
+}
+},
+content,
+},
+'TechSection':section[2]{
+title,
+subtitle,
+logo_text,
+logo_icon,
+button,
+content
+},
+'BlogSection':section[3]{
+  block,
+  custom_blogs[][0...2]->{
       _createdAt,
       _id,
       title,
@@ -78,10 +104,10 @@ const homeBlogSection = `*[_type == 'pages' && title == 'Home']{
     }
     }
   }
-}`
-const homeBlog:any = client.fetch(homeBlogSection)
+}
+`
+const homePage = client.fetch(newHomeQuery)
 
-//END OF HOMEPAGE QUERIES
 
 //About Me query
 const aboutMePageQuery = `*[_type == 'pages' && title == 'About me']{
@@ -131,4 +157,4 @@ const blog = client.fetch(blogQuery)
 
 //export data components
 export default defaultEx;
-export {homeHero, homeWork, homeTechStack,homeBlog, aboutMePage, getInTouchPage, blog, urlFor, menu, logo, }
+export {logoAndMenu, homePage, aboutMePage, getInTouchPage, blog, urlFor, menu, logo, }

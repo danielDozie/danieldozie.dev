@@ -1,2 +1,16 @@
-Building my portfolio using nextjs, faunadb (which gives me options of both REST API and GraphQL) and for the styling, I went with Tailwind and HeadlessUI.
-That's just it.
+My Portfolio Website
+
+Tech Used:
+Typescript - React/Nextjs
+Sanity.io (For Data(contents))
+TailwindCss
+Zustand (Not really necessary... just tested it's usage.)
+Formik
+
+
+Hosting:
+
+Vercel : https://badtfolio.vercel.app
+Netlify : http://badtfolio.netlify.app
+
+Still using the to test and work with new tools and libraries.

@@ -1,21 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
 import {useState, useEffect} from 'react'
-import {urlFor} from '../../lib/dataQueries'
+import {logoAndMenu, urlFor} from '../../lib/dataQueries'
 import { Dialog } from "@headlessui/react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
-import { useHeader } from '../../lib/store';
 
 export const MobileIcon = () => {
-    const siteLogo = useHeader(state => state.siteLogo)
-    const setSiteLogo = useHeader(state => state.setSiteLogo)
-    const menuItems = useHeader(state => state.menuItems)
-    const setMenuItems = useHeader(state => state.setMenuItems)
-    
-    useEffect(() => {
-      setSiteLogo()
-      setMenuItems()
-    }, [setMenuItems, setSiteLogo])
+  const [logo, setLogo] = useState({
+    icon: '',
+    name: '',
+    abbreviation: '',
+  })
+  const [menu, setMenu] = useState([])
+  useEffect(() => {
+    const data = async() => {
+     const result = await logoAndMenu
+     const logo = result.Logo[0]
+     const menu = result.Menu
+      setLogo(logo)
+      setMenu(menu)
+    }
+    data()
+  },[setMenu, setLogo])
 
     const [open, setOpen] = useState(false);
     const closeMenu = () => {
@@ -55,30 +61,32 @@ export const MobileIcon = () => {
                 </div>
               </div>
               <div className="uppercase font-black text-3xl flex items-center font-archivo justify-center -mt-4">
-                    <img src={urlFor(siteLogo.icon).url()} width={`42px`} height={`40px`} alt={siteLogo.name} />
+                    <img src={urlFor(logo.icon).url()} width={`42px`} height={`40px`} alt={logo.name} />
                 <div className="flex flex-col">
                   <span className="text-md ml-4 mt-1 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-                    {siteLogo.abbreviation}
+                    {logo.abbreviation}
                   </span>
                   <span className="font-mitr capitalize font-light text-xs bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 ml-4">
-                    {siteLogo.name}
+                    {logo.name}
                   </span>
                 </div>
               </div>
             </div>
           </Dialog.Title>
           <Dialog.Description>
-            <nav className="font-mitr text-gray-800 dark:text-gray-200 uppercase font-normal text-xl mt-8">
-              {menuItems.map((mobileMenu) => (
+            <div className="font-mitr text-gray-800 dark:text-gray-200 uppercase font-normal text-xl mt-8">
+                  
+              {menu.map((mobileMenu) => (
                 <div
                   onClick={closeMenu}
                   className="py-2 flex hover:text-gray-400 justify-center text-center align-center"
                   key={mobileMenu?._id}
                 >
+                    
                   <Link href={mobileMenu?.link.current}>{mobileMenu.name}</Link>
                 </div>
               ))}
-            </nav>
+            </div>
           </Dialog.Description>
         </Dialog>
       </>

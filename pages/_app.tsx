@@ -1,12 +1,10 @@
-import '../styles/globals.css'
 import 'tailwindcss/tailwind.css'
+import '../styles/globals.css'
 import { ThemeProvider } from 'tailwind-darkmode-toggle';
 import ReactAudioPlayer from 'react-audio-player'
 import { Nav } from '../components/Common/Nav'
 import { Footer } from '../components/Common/Footer'
-
 const audioFile = '/assets/audio/Snowchild.mp3'
-
 
 
 
@@ -24,8 +22,7 @@ function MyApp({ Component, pageProps }) {
           <Footer />
         </main>
     </ThemeProvider>
-
+  
   </>)
 }
-
 export default MyApp
