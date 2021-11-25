@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/api/journals/index.js", "components/Journals.jsx", "lib/groqQueries.tsx"  ],
+, "pages/api/messageHandler.tsx", "components/**/*.tsx", "components/**/*.js"],
   "exclude": [
     "node_modules"
   ]

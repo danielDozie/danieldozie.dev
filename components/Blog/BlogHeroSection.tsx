@@ -14,7 +14,6 @@ export const BlogHeroSection:React.FC = () => {
                             See, Chief... here are some interesting journals about tech, programming and IT in general
                         </h2>
                     </div>
-
                 </div>
             </div>
         </>

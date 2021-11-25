@@ -100,7 +100,7 @@ export const homeBlogSerializer = {
 
 export const aboutMeSerializer = {
   types: {
-    block: (props) => {
+    custom_block: (props: { node: { style: any; }; children: {}; }) => {
       const style = props.node.style
       switch (style) {
         case 'normal':
@@ -120,7 +120,23 @@ export const aboutMeSerializer = {
       strong: (props) => {
         <strong className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">{props.node.span}</strong> 
       }
-    }
+    },
+    block: (props) => {
+      const style = props.node.style
+      switch (style) {
+        case 'normal':
+          return (
+            <p>{props.children}</p>
+          );
+          case 'strong':
+            return (
+              <strong className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">{props.children}</strong>
+            );
+          case 'default': 
+            <p>{props.children}</p>
+      }
+      
+    },
   }
 }
 

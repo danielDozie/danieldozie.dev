@@ -1,17 +1,13 @@
-import {useEffect} from 'react'
 import Image from 'next/image'
-import { useHome } from '../../lib/store'
 import {urlFor} from '../../lib/dataQueries'
 
-
-export default function TechLogos() {
-    const homeTechStack = useHome(state => state.homeTechStack)
-    const setHomeTechStack = useHome(state => state.setHomeTechStack)
-    useEffect(() => {
-        setHomeTechStack()
-    }, [homeTechStack, setHomeTechStack]) 
-    
-    const Icons = homeTechStack[0]?.section.logo_icon
+type Props = {
+    logo_icon_large_text: string
+    logo_icon_small_text: string
+    logo_icon: any
+}
+export default function TechLogos(props: Props) {
+    const Icons = props.logo_icon
 
     return (
         <div className="container h-96  overflow-scroll shadow-2xl p-4 md:mt-8">
@@ -25,10 +21,9 @@ export default function TechLogos() {
                 </div>
             </div>
             <div className="m-8 text-gray-600 justify-center text-center">
-                <h3 className="text-lg font-semi-bold text-purple-500">{homeTechStack[0].section.logo_text[0]?.children[0].text}</h3>
-                <p className="text-purple-400 text-sm">{homeTechStack[0].section.logo_text[1]?.children[0].text}</p>
+                <h3 className="text-lg font-semi-bold text-purple-500">{props.logo_icon_large_text}</h3>
+                <p className="text-purple-400 text-sm">{props.logo_icon_small_text}</p>
             </div>
         </div>
-
     );
 }

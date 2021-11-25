@@ -2,28 +2,21 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useHome } from "../../lib/store";
+
 import BlockContent from '@sanity/block-content-to-react'
 import {homeBlogSerializer} from '../../lib/serializers'
 import { urlFor } from "../../lib/dataQueries";
 import moment from "moment";
 
 interface HomeBlogSectionProps {
-  id: number,
-  name: string,
-  color: string,
-  title: string,
-  description: string,
+  block: any;
+  custom_blogs: any;
 }
 
-export const HomeBlogSection:React.FC <HomeBlogSectionProps> = () => {
-  const homeBlog = useHome(state => state.homeBlog)
-  const setHomeBlog = useHome(state => state.setHomeBlog)
-  useEffect(() => {
-    setHomeBlog()
-  }, [homeBlog, setHomeBlog])
-  const content = homeBlog.section.block
-  const Blogs = homeBlog.section.custom_blogs
+export const HomeBlogSection = (props: HomeBlogSectionProps) => {
+
+  const content = props.block
+  const Blogs = props.custom_blogs
 
   return (
     <>

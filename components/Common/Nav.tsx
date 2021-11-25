@@ -1,22 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
-import {useEffect } from "react";
+import {useEffect, useState } from "react";
 import Link from "next/link";
 import {MobileIcon} from "./MobileIcon";
 import {Toggle} from './Toggle'
-import {urlFor } from '../../lib/dataQueries'
-import {useHeader} from '../../lib/store'
+import {logoAndMenu, urlFor } from '../../lib/dataQueries'
 
-
-export const Nav: React.FC<any> = () => {
-  const siteLogo = useHeader(state => state.siteLogo)
-  const setSiteLogo = useHeader(state => state.setSiteLogo)
-  const menuItems = useHeader(state => state.menuItems)
-  const setMenuItems = useHeader(state => state.setMenuItems)
-
+export const Nav  = () => {
+  const [logo, setLogo] = useState({
+    icon: '',
+    name: '',
+    abbreviation: '',
+  })
+  const [menu, setMenu] = useState([])
   useEffect(() => {
-    setSiteLogo()
-    setMenuItems()
-  }, [setMenuItems, setSiteLogo])
+    const data = async() => {
+     const result = await logoAndMenu
+     const logo = result.Logo[0]
+     const menu = result.Menu
+      setLogo(logo)
+      setMenu(menu)
+    }
+    data()
+  },[setMenu, setLogo])
   
   return (
     <>
@@ -24,20 +29,20 @@ export const Nav: React.FC<any> = () => {
         <div className="container mx-auto px-6 flex items-center justify-between">
           <Link href={"/"} passHref>
             <div className="uppercase  font-black text-3xl flex items-center font-archivo">
-                  <img src={urlFor(siteLogo?.icon).url()} width={`42px`} height={`40px`} alt={siteLogo?.name} />
+                  <img src={urlFor(logo.icon).url()} width={`42px`} height={`40px`} alt={logo.name} />
               <div className="flex flex-col">
                 <span className="text-md ml-4 mt-1 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-                  {siteLogo?.abbreviation}
+                  {logo.abbreviation}
                 </span>
                 <span className="font-mitr capitalize font-light text-xs bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 ml-4">
-                  {siteLogo?.name}
+                  {logo.name}
                 </span>
               </div>
             </div>
           </Link>
           <div className="flex items-center">
-            <nav className=" text-gray-800 dark:text-white uppercase text-normal lg:flex items-center hidden">
-              {menuItems.map((item) => (
+            <div className=" text-gray-800 dark:text-white uppercase text-normal lg:flex items-center hidden">
+              {menu.map((item) => (
                 <div
                   className="py-2 px-6 flex hover:text-gray-400"
                   key={item?._id}
@@ -49,7 +54,7 @@ export const Nav: React.FC<any> = () => {
                   </Link>
                 </div>
               ))}
-            </nav>
+            </div>
             <Toggle />
             <MobileIcon />
           </div>
@@ -58,4 +63,3 @@ export const Nav: React.FC<any> = () => {
     </>
   );
 };
-
