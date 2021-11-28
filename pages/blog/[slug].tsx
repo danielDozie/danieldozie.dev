@@ -53,7 +53,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const blogs = await blogPosts
-    const data = blogs.find((blog: { slug: { current: any } }) => blog.slug.current === params.slug)
+    const data = blogs.find((blog: { slug: { current: string } }) => blog.slug.current === params.slug)
     return {
         props: {
             blog: data,

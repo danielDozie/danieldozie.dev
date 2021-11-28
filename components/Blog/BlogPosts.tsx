@@ -17,6 +17,7 @@ export const BlogPosts = (props: { data: { author: any; excerpts: any; image: an
                   key={_id}
                 >
                   <div className="flex h-full bg-center lg:w-2/5 w-full mr-8 mb-4 ">
+                    <Link href={`/blog/${slug.current}`}>
                     <Image
                       src={urlFor(image).url()}
                       width={500}
@@ -24,6 +25,7 @@ export const BlogPosts = (props: { data: { author: any; excerpts: any; image: an
                       className="rounded-lg"
                       alt={'How'}
                     />
+                    </Link>
                   </div>
                   <div className="w-full flex flex-col ">
                     <h1 className="font-mitr font-semibold text-sm md:text-lg bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 my-4">

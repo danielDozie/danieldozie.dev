@@ -14,10 +14,10 @@ interface HomeBlogSectionProps {
 }
 
 export const HomeBlogSection = (props: HomeBlogSectionProps) => {
-
+  
   const content = props.block
   const Blogs = props.custom_blogs
-
+  
   return (
     <>
       <div className="max-w-7xl mx-auto md:py-8 sm:px-6 h-full">
@@ -34,6 +34,7 @@ export const HomeBlogSection = (props: HomeBlogSectionProps) => {
                   key={_id}
                 >
                   <div className="flex h-full bg-center w-full mr-8 mb-4 ">
+                    <Link href={`/blog/${slug.current}`}>
                     <Image
                       src={urlFor(image).url()}
                       width={500}
@@ -41,6 +42,7 @@ export const HomeBlogSection = (props: HomeBlogSectionProps) => {
                       className="rounded-lg"
                       alt={'How'}
                     />
+                    </Link>
                   </div>
                   <div className="w-full flex flex-col ">
                     <h1 className="font-mitr font-semibold text-sm md:text-lg bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">

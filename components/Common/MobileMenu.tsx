@@ -60,7 +60,8 @@ export const MobileIcon = () => {
                   />
                 </div>
               </div>
-              <div className="uppercase font-black text-3xl flex items-center font-archivo justify-center -mt-4">
+              <Link href="/">
+              <div onClick={closeMenu} className="uppercase font-black text-3xl flex items-center font-archivo justify-center -mt-4">
                     <img src={urlFor(logo.icon).url()} width={`42px`} height={`40px`} alt={logo.name} />
                 <div className="flex flex-col">
                   <span className="text-md ml-4 mt-1 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
@@ -71,6 +72,7 @@ export const MobileIcon = () => {
                   </span>
                 </div>
               </div>
+            </Link>
             </div>
           </Dialog.Title>
           <Dialog.Description>
@@ -83,9 +85,17 @@ export const MobileIcon = () => {
                   key={mobileMenu?._id}
                 >
                     
-                  <Link href={mobileMenu?.link.current}>{mobileMenu.name}</Link>
+                  <Link href={`/`+mobileMenu?.link.current}>{mobileMenu.name}</Link>
                 </div>
               ))}
+              <div
+                 onClick={closeMenu} className="flex items-center justify-center rounded-md py-2 px-6 text-white bg-indigo-600 hover:bg-indigo-700 mx-20">
+                  <Link
+                    href={`/contact`}
+                  >
+                    {`Get in Touch`}
+                  </Link>
+                </div>
             </div>
           </Dialog.Description>
         </Dialog>

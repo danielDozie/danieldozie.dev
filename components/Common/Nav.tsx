@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import {useEffect, useState } from "react";
 import Link from "next/link";
-import {MobileIcon} from "./MobileIcon";
+import {MobileIcon} from "./MobileMenu";
 import {Toggle} from './Toggle'
 import {logoAndMenu, urlFor } from '../../lib/dataQueries'
 
@@ -27,7 +27,7 @@ export const Nav  = () => {
     <>
       <header className="h-24 flex items-center w-full bg-transparent z-40 fixed backdrop-filter backdrop-blur-lg">
         <div className="container mx-auto px-6 flex items-center justify-between">
-          <Link href={"/"} passHref>
+          <Link href={"/"}>
             <div className="uppercase  font-black text-3xl flex items-center font-archivo">
                   <img src={urlFor(logo.icon).url()} width={`42px`} height={`40px`} alt={logo.name} />
               <div className="flex flex-col">
@@ -48,12 +48,20 @@ export const Nav  = () => {
                   key={item?._id}
                 >
                   <Link
-                    href={item?.link.current}
+                    href={`/`+item?.link.current}
                   >
                     {item?.name}
                   </Link>
                 </div>
               ))}
+              <div
+                  className="rounded-md py-2 px-6 flex text-white bg-indigo-600 hover:bg-indigo-700">
+                  <Link
+                    href={`/contact`}
+                  >
+                    {`Get in Touch`}
+                  </Link>
+                </div>
             </div>
             <Toggle />
             <MobileIcon />

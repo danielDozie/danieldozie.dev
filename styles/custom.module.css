@@ -1,0 +1,13 @@
+.blobImage {
+    background-image: url(/assets/images/blob.svg) !important;
+    background-position: 180% 100px; 
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .blobImage {
+        background-position: 85px 150px;
+    }
+  }
+      

@@ -2,7 +2,7 @@ interface Heading {
     secondaryHeading:string;
     primaryHeading:string;
 }
-export const GetInTouchHeroSection = (props:Heading) => {
+export const ContactHeroSection = (props:Heading) => {
     return (
         <>
             <div className="flex z-20 items-center mt-40">

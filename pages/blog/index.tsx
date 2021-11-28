@@ -5,7 +5,6 @@ import { BlogPosts } from '../../components/Blog/BlogPosts';
 import { blog } from '../../lib/dataQueries';
 
 export default function index({data}) {
-  console.log(data)
   return ( 
     <>
       <Head>

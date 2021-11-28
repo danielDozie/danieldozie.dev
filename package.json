@@ -13,6 +13,7 @@
     "@heroicons/react": "^1.0.5",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^2.19.0",
+    "aphrodite": "^2.4.0",
     "axios": "^0.24.0",
     "formik": "^2.2.9",
     "moment": "^2.29.1",
