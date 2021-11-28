@@ -1,5 +1,5 @@
 import create from 'zustand'
-import {menu, logo, aboutMePage, getInTouchPage, blog} from '../lib/dataQueries'
+import {menu, logo, aboutMePage, blog} from '../lib/dataQueries'
 
 export const useHeader = create(set => ({
     //logo state
@@ -86,17 +86,6 @@ export const useAboutMePage = create(set => ({
     }
 }))
 
-export const useGetInTouchPage = create(set => ({ 
-    getInTouchPage: {
-        title: '',
-        description: '',
-        section: {},
-    },
-    setGetInTouchPage: async () => {
-        const response = await getInTouchPage
-        response.forEach((item: any) => set({getInTouchPage: item}))
-    }
-}))
 
 export const useBlog = create(set => ({
     blogs: [],
