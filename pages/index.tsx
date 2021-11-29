@@ -8,7 +8,7 @@ import { homePage} from '../lib/dataQueries'
 const Homepage = ({data}) => {
   return (
         <>
-        <Head>
+        <Head children={''}>
           <title>{`Welcome`} - {process.env.siteTitle}</title>
         </Head>
 

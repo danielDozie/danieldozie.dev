@@ -7,9 +7,10 @@ import BlockContent from '@sanity/block-content-to-react'
 import { servicesDetailsSerializer } from '../../lib/serializers'
 
 interface Props {
+  content: any
   _key: string,
   title: string,
-  data: Array<BlockContent>
+  data: any,
 }
 
 function classNames(...classes) {
@@ -27,7 +28,7 @@ export default function InnerDetails(props: Props): React.FC {
         <FcBookmark />
         </div>
           <dl className="space-y-6 divide-y divide-gray-200 shadow-md p-4 lg:p-12">
-            {items.map((item) => (
+            {items.map((item : Props) => (
               <Disclosure as="div" key={item._key} className="pt-6 ">
                 {({ open }) => (
                   <>

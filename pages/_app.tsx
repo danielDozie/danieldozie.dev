@@ -16,6 +16,7 @@ function MyApp({ Component, pageProps }) {
           <ReactAudioPlayer
             src={audioFile}
             autoPlay
+            volume={1}
           />
           <Nav />
           <Component {...pageProps} />

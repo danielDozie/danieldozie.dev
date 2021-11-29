@@ -11,7 +11,7 @@ export default function Index({data}) {
         <title>{process.env.siteTitle} - {data[0].title} Service</title>
     </Head>
         <InnerHeroSection title={data[0].title} description={data[0].description} />
-        <InnerDetails data={data[0].section} _key={''} title={''} />
+        <InnerDetails data={data[0].section} _key={''} title={''} content={undefined} />
     </>
   );
 }
