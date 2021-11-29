@@ -8,7 +8,7 @@ import ServicesList from '../../components/Services/ServicesList';
 export default function Services({data}) {
   return (
     <>
-    <Head>
+    <Head children={''}>
       <title>{process.env.siteTitle} - {data[0].title}</title>
     </Head>
       <ServicesHeroSection primaryHeading={data[0].section[0].primaryHeading} secondaryHeading={data[0].section[0].secondaryHeading} />

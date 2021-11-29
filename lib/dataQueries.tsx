@@ -152,8 +152,6 @@ const contactQuery = `*[_type == 'pages' && title == 'Say Hello']{
 }`
 const contactPage = client.fetch(contactQuery)
 
-
-
 //blog query
 const blogQuery = `*[_type == 'blog']{
   _createdAt,
@@ -175,6 +173,38 @@ const blogQuery = `*[_type == 'blog']{
 }`
 const blog = client.fetch(blogQuery)
 
+const digitalPageQuery = `*[_type == 'pages' && title == 'Digital']{
+  title,
+  description,
+  slug{
+  current
+},
+section,
+}`
+
+const digitalPage = client.fetch(digitalPageQuery)
+
+
+const brandingPageQuery = `*[_type == 'pages' && title == 'Branding']{
+  title,
+  description,
+  slug{
+  current
+},
+section,
+}`
+const brandingPage = client.fetch(brandingPageQuery)
+
+const uixPageQuery = `*[_type == 'pages' && title == 'UI/UX Design']{
+  title,
+  description,
+  slug{
+  current
+},
+section,
+}`
+const uixPage = client.fetch(uixPageQuery)
+
 //export data components
 export default defaultEx;
-export {logoAndMenu, homePage, aboutMePage, servicesPage, contactPage, blog, urlFor, menu, logo, }
+export {logoAndMenu, homePage, aboutMePage, servicesPage, contactPage, blog, urlFor, menu, logo, digitalPage, brandingPage,uixPage} 
