@@ -17,7 +17,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function InnerDetails(props: Props): React.FC {
+export default function InnerDetails(props: Props) {
   const items = props.data
   return (
       
