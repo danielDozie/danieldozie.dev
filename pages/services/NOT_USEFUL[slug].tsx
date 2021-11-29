@@ -3,13 +3,12 @@ import React from 'react';
 import { servicesPage } from '../../lib/dataQueries';
 
 export default function Index({data}) {
+    console.log(data);
   return (
     <>
     <Head>
         <title>{process.env.siteTitle} - {`Services |`} {data.title}</title>
     </Head>
-    
-    <p></p>
     </>
   );
 }
