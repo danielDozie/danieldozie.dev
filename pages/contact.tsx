@@ -6,7 +6,7 @@ import { contactPage } from '../lib/dataQueries';
 export default function Contact({data}) {
     return (
         <>
-            <Head children={''}>
+            <Head>
                 <title>{process.env.siteTitle} - {data[0].title}</title>
                 <meta name={data[0].description} content={data[0].description}></meta>
             </Head>

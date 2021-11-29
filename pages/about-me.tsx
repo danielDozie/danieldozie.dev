@@ -8,7 +8,7 @@ export default function About({ data }) {
     const content = data[0].section[1].block
     return (
         <>
-            <Head children={''}>
+            <Head>
                 <title>{process.env.siteTitle} - {data[0].title}</title>
                 <meta name={data[0].description} content={data[0].description}></meta>
             </Head>
