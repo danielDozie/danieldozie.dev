@@ -5,7 +5,7 @@ import { servicesPage } from '../../lib/dataQueries';
 export default function Index({data}) {
   return (
     <>
-    <Head children={''}>
+    <Head>
         <title>{process.env.siteTitle} - {`Services |`} {data.title}</title>
     </Head>
     

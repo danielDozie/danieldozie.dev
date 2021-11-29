@@ -7,7 +7,7 @@ import { digitalPage } from '../../lib/dataQueries';
 export default function Index({data}) {
   return (
     <>
-    <Head children={''}>
+    <Head>
         <title>{process.env.siteTitle} - {data[0].title} Service</title>
     </Head>
         <InnerHeroSection title={data[0].title} description={data[0].description} />
