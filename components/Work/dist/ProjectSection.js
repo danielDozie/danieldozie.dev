@@ -5,12 +5,9 @@ var dataQueries_1 = require("../../lib/dataQueries");
 var image_1 = require("next/image");
 function ProjectSection(props) {
     var data = props.projects;
-    return (react_1["default"].createElement(react_1["default"].Fragment, null, data.map(function (item) { return (react_1["default"].createElement("div", { className: "relative my-20 lg:mx-12 " },
+    return (react_1["default"].createElement(react_1["default"].Fragment, null, data.map(function (item) { return (react_1["default"].createElement("div", { className: "relative my-20 lg:mx-12", key: item.id },
         react_1["default"].createElement("div", { className: " h-56 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2" },
-            react_1["default"].createElement(image_1["default"], { className: "h-full w-full object-contain lg:rounded-xl", src: dataQueries_1.urlFor(item.image).url(), alt: "screenshot", 
-                // height={150}
-                // width={150}
-                layout: "fill" })),
+            react_1["default"].createElement(image_1["default"], { className: "h-full w-full object-contain lg:rounded-xl", src: dataQueries_1.urlFor(item.image).url(), alt: "screenshot", layout: "fill" })),
         react_1["default"].createElement("div", { className: "relative max-w-7xl mx-auto px-4 py-8 sm:py-12 sm:px-6 lg:py-16" },
             react_1["default"].createElement("div", { className: "max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-10" },
                 react_1["default"].createElement("div", null,

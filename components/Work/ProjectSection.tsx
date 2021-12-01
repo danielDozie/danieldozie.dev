@@ -15,14 +15,12 @@ export default function ProjectSection(props: Props) {
   const data = props.projects
   return (<>
     {data.map((item) => (
-    <div className="relative my-20 lg:mx-12 ">
+    <div className="relative my-20 lg:mx-12" key={item.id}>
       <div className={` h-56 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2`}>
         <Image
           className="h-full w-full object-contain lg:rounded-xl"
           src={urlFor(item.image).url()}
           alt="screenshot"
-          // height={150}
-          // width={150}
           layout="fill"
         />
       </div>
