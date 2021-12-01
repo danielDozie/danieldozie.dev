@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next';
 import Head from 'next/head'
 import { ContactForm } from '../components/Contact/ContactForm';
 import { ContactHeroSection } from '../components/Contact/ContactHeroSection'
@@ -22,7 +23,7 @@ export default function Contact({data}) {
     )
 }
 
-export async function getStaticProps(){
+export const getStaticProps: GetStaticProps  = async () => {
     const data = await contactPage
     return {
         props: {

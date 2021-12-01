@@ -4,6 +4,7 @@ import { TechSection } from '../components/Home/TechSection'
 import {HomeBlogSection} from '../components/Home/HomeBlogSection'
 import Head from 'next/head'
 import { homePage} from '../lib/dataQueries'
+import { GetStaticProps } from 'next'
 
 const Homepage = ({data}) => {
   return (
@@ -24,7 +25,7 @@ const Homepage = ({data}) => {
 }
 export default Homepage;
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await homePage
   return {
     props: {

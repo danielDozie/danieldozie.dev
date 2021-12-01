@@ -2,6 +2,7 @@ import React from 'react'
 import {blog as blogPosts, urlFor} from '../../lib/dataQueries'
 import BlockContent from '@sanity/block-content-to-react'
 import { blogSerializer} from '../../lib/serializers'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 export default function Index({blog}){
     const backgroundImage = {
@@ -40,10 +41,12 @@ export default function Index({blog}){
     )
 }
 
-export async function getStaticPaths() {
+
+
+export const getStaticPaths: GetStaticPaths = async () => {
     const blogs = await blogPosts
-    const paths = blogs.map((blog: { slug: { current: string } }) => ({ 
-        params: { slug: blog.slug.current }
+    const paths = blogs.map((blog: { slug: { current: string } }) => ({
+        params: { slug: blog.slug.current } 
     }))
     return {
         paths,
@@ -51,7 +54,7 @@ export async function getStaticPaths() {
     }
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({params}) => {
     const blogs = await blogPosts
     const data = blogs.find((blog: { slug: { current: string } }) => blog.slug.current === params.slug)
     return {
@@ -59,5 +62,6 @@ export async function getStaticProps({ params }) {
             blog: data,
         }
     }
-
 }
+
+

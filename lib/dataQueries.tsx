@@ -173,38 +173,72 @@ const blogQuery = `*[_type == 'blog']{
 }`
 const blog = client.fetch(blogQuery)
 
-const digitalPageQuery = `*[_type == 'pages' && title == 'Digital']{
+const digitalPageQuery = `*[_type == 'services' && title == 'Digital']{
   title,
   description,
   slug{
   current
 },
-section,
+services_list,
 }`
 
 const digitalPage = client.fetch(digitalPageQuery)
 
 
-const brandingPageQuery = `*[_type == 'pages' && title == 'Branding']{
+const brandingPageQuery = `*[_type == 'services' && title == 'Branding']{
   title,
   description,
   slug{
   current
 },
-section,
+services_list,
 }`
 const brandingPage = client.fetch(brandingPageQuery)
 
-const uixPageQuery = `*[_type == 'pages' && title == 'UI/UX Design']{
+const uixPageQuery = `*[_type == 'services' && title == 'UI/UX Design']{
   title,
   description,
   slug{
   current
 },
-section,
+services_list,
 }`
 const uixPage = client.fetch(uixPageQuery)
 
+const eComPageQuery = `*[_type == 'services' && title == 'E-commerce']{
+  title,
+  description,
+  slug{
+  current
+},
+services_list,
+}`
+const eComPage = client.fetch(eComPageQuery)
+
+const workPageQuery = `*[_type == 'pages' && title == 'Work']{
+  title,
+  description,
+  slug{
+  current,
+},
+section
+
+} + 
+*[_type == 'projects']{
+  _id,
+  title,
+  description,
+  image{
+  asset->{
+  url
+}
+},
+link,
+tags,
+content
+}`
+const workPage = client.fetch(workPageQuery)
+
 //export data components
 export default defaultEx;
-export {logoAndMenu, homePage, aboutMePage, servicesPage, contactPage, blog, urlFor, menu, logo, digitalPage, brandingPage,uixPage} 
+export {logoAndMenu, homePage, aboutMePage, servicesPage, contactPage, blog, urlFor, menu, logo, digitalPage, brandingPage,uixPage, eComPage, workPage} 

@@ -241,12 +241,12 @@ export const servicesDetailsSerializer = {
       switch (style) {  
         case "normal":
           return (
-            <p className="text-base text-gray-500 dark:text-gray-300">
+            <p className="text-sm lg:text-base text-gray-500 dark:text-gray-300">
               {props.children}
             </p>
           );
         case "default":
-          return <p className="text-base text-gray-500 dark:text-gray-300">{props.children}</p>
+          return <p className="text-sm lg:text-lg text-gray-500 dark:text-gray-300">{props.children}</p>
       }
     }
   }

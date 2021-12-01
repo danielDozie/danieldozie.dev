@@ -69,11 +69,11 @@ export const HomeBlogSection = (props: HomeBlogSectionProps) => {
                 </div>
               ))}
             </div>
-            <Link href={`/blog`}>
+            <a href={`/blog`}>
               <h1 className={`font-archivo font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-purple-800 mt-6 text-center lg:text-left lg:pl-10`}>
                 View all blog posts...
                 </h1>
-              </Link>
+              </a>
           </div>
         </div>
         <div className="justify-center text-center md:pt-16">

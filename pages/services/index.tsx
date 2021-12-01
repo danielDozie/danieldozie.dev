@@ -4,6 +4,7 @@ import { servicesPage } from '../../lib/dataQueries';
 import ServicesHeroSection from '../../components/Services/ServicesHeroSection'
 import ServicesContentSection from '../../components/Services/ServicesContentSection';
 import ServicesList from '../../components/Services/ServicesList';
+import { GetStaticProps } from 'next';
 
 export default function Services({data}) {
   return (
@@ -18,11 +19,12 @@ export default function Services({data}) {
   );
 }
 
-export async function getStaticProps() {
+
+export const getStaticProps : GetStaticProps  = async () => {
     const data = await servicesPage
     return {
         props: {
             data: data,
     }
-}   
+}
 }

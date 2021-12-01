@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import InnerHeroSection from '../../components/Services/InnerHeroSection';
 import InnerDetails from '../../components/Services/InnerDetails';
-import { digitalPage } from '../../lib/dataQueries';
+import { eComPage } from '../../lib/dataQueries';
 import { GetStaticProps } from 'next';
 
 export default function Index({data}) {
@@ -18,7 +18,7 @@ export default function Index({data}) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const result = await digitalPage
+    const result = await eComPage
     return {
         props: {
             data: result,

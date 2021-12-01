@@ -3,6 +3,7 @@ import Head from 'next/head'
 import BlockContent from '@sanity/block-content-to-react'
 import { aboutMeSerializer } from '../lib/serializers'
 import { aboutMePage } from '../lib/dataQueries'
+import { GetStaticProps } from 'next'
 
 export default function About({ data }) {
     const content = data[0].section[1].block
@@ -14,7 +15,7 @@ export default function About({ data }) {
             </Head>
             <AboutHeroSection primaryHeading={data[0].section[0].primaryHeading} secondaryHeading={data[0].section[0].secondaryHeading} />
             <div className="flex flex-col justify-center text-left md:text-center mt-8">
-                <div className="font-mitr font-sm text-black dark:text-gray-200 mx-8 md:p-4">
+                <div className="font-mitr font-sm text-gray-600  dark:text-gray-300 mx-8 md:p-4">
                     <BlockContent blocks={content} serializers={aboutMeSerializer} />
                 </div>
                 <div className="flex mt-16 justify-center items-center lg:ml-0">
@@ -32,8 +33,7 @@ export default function About({ data }) {
     )
 }
 
-
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps  = async () => {
     const data = await aboutMePage
     return {
         props: {

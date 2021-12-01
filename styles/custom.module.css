@@ -4,6 +4,14 @@
     background-repeat: no-repeat;
     background-size: contain;
   }
+  .projectBG{
+    background-image: url(/assets/images/projectBG.svg) !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  
   
   @media screen and (max-width: 768px) {
     .blobImage {

@@ -24,7 +24,7 @@ export default function InnerDetails(props: Props) {
       <div className="max-w-7xl mx-auto px-4 sm:py-16 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto divide-y-2 divide-gray-200">
         <div className="flex">
-        <h1 className="pb-8 text-2xl text-gray-600 dark:text-gray-300 uppercase font-bold ">Things I do here</h1>
+        <h1 className="pb-8 text-2xl text-gray-600 dark:text-gray-300 uppercase font-bold pl-2">Things I do here</h1>
         <FcBookmark />
         </div>
           <dl className="space-y-6 divide-y divide-gray-200 shadow-md p-4 lg:p-12">
@@ -43,7 +43,7 @@ export default function InnerDetails(props: Props) {
                         </span>
                       </Disclosure.Button>
                     </dt>
-                    <Disclosure.Panel as="dd" className="mt-2 pr-12">
+                    <Disclosure.Panel as="dd" className="mt-2">
                       <BlockContent blocks={item.content} serializers={servicesDetailsSerializer}  />
                     </Disclosure.Panel>
                   </>
