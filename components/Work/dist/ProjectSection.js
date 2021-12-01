@@ -11,7 +11,7 @@ function ProjectSection(props) {
         react_1["default"].createElement("div", { className: "relative max-w-7xl mx-auto px-4 py-8 sm:py-12 sm:px-6 lg:py-16" },
             react_1["default"].createElement("div", { className: "max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-10" },
                 react_1["default"].createElement("div", null,
-                    react_1["default"].createElement("div", { className: "flex text-gray-500 dark:text-gray-300 gap gap-2" }, item.tags.map(function (tag) { return (react_1["default"].createElement("span", { className: "inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800" },
+                    react_1["default"].createElement("div", { className: "flex text-gray-500 dark:text-gray-300 gap gap-2" }, item.tags.map(function (tag) { return (react_1["default"].createElement("span", { className: "inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800", key: tag },
                         react_1["default"].createElement("svg", { className: "-ml-1 mr-1.5 h-2 w-2 text-indigo-400", fill: "currentColor", viewBox: "0 0 8 8" },
                             react_1["default"].createElement("circle", { cx: 4, cy: 4, r: 3 })),
                         tag)); }))),
