@@ -1,7 +1,5 @@
 import React from 'react'
 import {urlFor} from '../../lib/dataQueries'
-import Image from 'next/image'
-
 interface Props {
   _id: string,
   description: string,
@@ -16,12 +14,12 @@ export default function ProjectSection(props: Props) {
   return (<>
     {data.map((item) => (
     <div className="relative my-20 lg:mx-12" key={item.id}>
-      <div className={` h-56 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2`}>
-        <Image
+      <div className="h-56 sm:h-72 bg-gray-50 dark:bg-gray-700 lg:absolute lg:left-0 lg:h-full lg:w-1/2 lg:rounded-3xl">
+        <img
           className="h-full w-full object-contain lg:rounded-xl"
           src={urlFor(item.image).url()}
           alt="screenshot"
-          layout="fill"
+          
         />
       </div>
       <div className="relative max-w-7xl mx-auto px-4 py-8 sm:py-12 sm:px-6 lg:py-16">
