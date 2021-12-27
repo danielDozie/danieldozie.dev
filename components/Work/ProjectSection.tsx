@@ -1,22 +1,25 @@
-import React, { Key } from 'react'
+import React from 'react'
 import {urlFor} from '../../lib/dataQueries'
-interface Props {
-  [x: string]: Key
+
+type PROPS = {
+  projects: Array<any>,
+}
+
+type ITEMS = {
   _id: string,
   description: string,
   image: string,
   tags: any,
   title: string,
-  projects: any,
-  link: string,
+  link:string,
 }
 
-export default function ProjectSection(props: Props) {
+export default function ProjectSection(props: PROPS) {
   const data = props.projects
   return (<>
-    {data.map((item) => (
+    {data.map((item:ITEMS) => (
       <>
-    <div className="relative my-20 lg:mx-12" key={item.id}>
+    <div className="relative mt-20 lg:my-20 lg:mx-12" key={item._id}>
       <div className="h-56 sm:h-72 bg-gray-50 dark:bg-gray-700 lg:absolute lg:left-0 lg:h-full lg:w-1/2 lg:rounded-3xl">
         <img
           className="h-full w-full object-contain lg:rounded-xl"
@@ -28,8 +31,8 @@ export default function ProjectSection(props: Props) {
         <div className="max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-10">
           <div>
             <div className="flex text-gray-500 dark:text-gray-300 gap gap-2">
-            {item.tags.map(tag => (
-            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800" key={tag}>
+            {item.tags.map((tag: any) => (
+            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800" key={Math.floor(Math.random() * 99999)}>
               <svg className="-ml-1 mr-1.5 h-2 w-2 text-indigo-400" fill="currentColor" viewBox="0 0 8 8">
                 <circle cx={4} cy={4} r={3} />
               </svg>

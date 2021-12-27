@@ -1,14 +1,15 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { GetStaticProps } from 'next';
-import Head from 'next/head';
-import ProjectSection from '../components/Work/ProjectSection';
-import WorkHeroSection from '../components/Work/WorkHeroSection';
-import { allwork, workPageQuery } from '../lib/dataQueries';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+// import { GetStaticProps } from 'next'
+import Head from 'next/head'
+import ProjectSection from '../components/Work/ProjectSection'
+import WorkHeroSection from '../components/Work/WorkHeroSection'
+import { allwork, workPageQuery } from '../lib/dataQueries'
 import {AiOutlineLoading3Quarters} from 'react-icons/ai'
 import client from '../lib/sanityClient'
-import usePageStore from '../store/store';
+import usePageStore from '../store/store'
 
 export default function Work():JSX.Element {
+  //setting my app states locally on here and globally on the store //Zustand
   const[isLoading, setIsLoading] = useState(false);
   const [isButtonDisplayed, setIsButtonDisplayed] = useState(true);
   const btnRef = useRef(null)
@@ -18,8 +19,8 @@ export default function Work():JSX.Element {
   const loadMorePaginateValue = usePageStore(state => state.loadMorePaginateValue)
   const [projectCount, setProjectCount] = useState(endPaginateValue)
   
-  
-  useEffect(() => {
+  //using the inbuilt useEffect hook to fetch the data
+  useLayoutEffect(() => {
     const workPage = client.fetch(workPageQuery, {initPaginateValue: initPaginateValue, endPaginateValue: endPaginateValue})
     const result = async() => {
     const res = await workPage
@@ -40,7 +41,7 @@ export default function Work():JSX.Element {
 
   }
   
-  const projects = project.slice(1);
+  const projects = project.slice(1) //slice the first item as it is the page title elements
   useEffect(() => {
      const AllWork = client.fetch(allwork)
      const data =  async() => {
@@ -48,6 +49,7 @@ export default function Work():JSX.Element {
      const result = res
      setProjectCount(result)
     }
+
     if(endPaginateValue > projectCount) {
       setIsButtonDisplayed(false)
       const btn = btnRef.current
@@ -63,7 +65,7 @@ export default function Work():JSX.Element {
           <meta name={project[0]?.titele} content={project[0]?.description}></meta>
       </Head>
       <WorkHeroSection primaryHeading={project[0]?.section[0]?.primaryHeading} secondaryHeading={project[0]?.section[0]?.secondaryHeading} />
-      <ProjectSection projects={projects} _id={projects._id} title={projects.title} description={projects.description} image={projects.image} tags={projects.tags} />
+      <ProjectSection projects={projects}/>
       <div className="max-w-7xl mx-auto text-center">
           <button type="button" ref={btnRef} className="justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 disabled" onClick={loadMoreHandler}>
                   {isLoading ? <Loading/> : 'Load More'}
@@ -86,13 +88,13 @@ export function Loading() {
 }
 
 
-export const getStaticProps: GetStaticProps  = async () => {
+// export const getStaticProps: GetStaticProps  = async () => {
     
-    const workPage = client.fetch(workPageQuery, {initPaginateValue: 0, endPaginateValue: 5})
-    const data = await workPage
-    return {
-        props: {
-           allproject: data,
-        },
-    };
-}
+//     const workPage = client.fetch(workPageQuery, {initPaginateValue: 0, endPaginateValue: 5})
+//     const data = await workPage
+//     return {
+//         props: {
+//            allprojects: data,
+//         },
+//     };
+// }
