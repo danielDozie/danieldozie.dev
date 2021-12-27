@@ -30,9 +30,7 @@ export const HomeBlogSection = (props: HomeBlogSectionProps) => {
             
               {Blogs.map(({ author,excerpts, image, slug, title, _createdAt, _id }) => (
                 <div
-                  className={`flex flex-col md:flex-row md:justify-between py-4 px-4 rounded-lg shadow-2xl  dark:border-gray-600 bottom-2`}
-                  key={_id}
-                >
+                  className={`flex flex-col md:flex-row md:justify-between py-4 px-4 rounded-lg shadow-2xl  dark:border-gray-600 bottom-2`} key={_id}>
                   <div className="flex h-full bg-center w-full mr-8 mb-4 ">
                     <Link href={`/blog/${slug.current}`}>
                     <Image
@@ -40,7 +38,7 @@ export const HomeBlogSection = (props: HomeBlogSectionProps) => {
                       width={500}
                       height={"300px"}
                       className="rounded-lg"
-                      alt={'How'}
+                      alt={'image'}
                     />
                     </Link>
                   </div>
@@ -69,20 +67,14 @@ export const HomeBlogSection = (props: HomeBlogSectionProps) => {
                 </div>
               ))}
             </div>
-            <a href={`/blog`}>
+            <Link href={`/blog`}>
               <h1 className={`font-archivo font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-purple-800 mt-6 text-center lg:text-left lg:pl-10`}>
                 View all blog posts...
                 </h1>
-              </a>
+              </Link>
           </div>
         </div>
         <div className="justify-center text-center md:pt-16">
-          {/* <Link href={`/blog/`}>
-            <button className="px-5 py-1 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
-              See All Posts
-            </button>
-          </Link> */}
-          
         </div>
     </>
   );

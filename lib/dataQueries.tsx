@@ -215,6 +215,8 @@ services_list,
 }`
 const eComPage = client.fetch(eComPageQuery)
 
+
+
 const workPageQuery = `*[_type == 'pages' && title == 'Work']{
   title,
   description,
@@ -224,7 +226,7 @@ const workPageQuery = `*[_type == 'pages' && title == 'Work']{
 section
 
 } + 
-*[_type == 'projects']{
+*[_type == 'projects'][$initPaginateValue...$endPaginateValue]{
   _id,
   title,
   description,
@@ -237,8 +239,9 @@ link,
 tags,
 content
 }`
-const workPage = client.fetch(workPageQuery)
+
+const allwork = `count(*[_type == 'projects'])`
 
 //export data components
 export default defaultEx;
-export {logoAndMenu, homePage, aboutMePage, servicesPage, contactPage, blog, urlFor, menu, logo, digitalPage, brandingPage,uixPage, eComPage, workPage} 
+export {logoAndMenu, homePage, aboutMePage, servicesPage, contactPage, blog, urlFor, menu, logo, digitalPage, brandingPage,uixPage, eComPage, workPageQuery, allwork} 
