@@ -3,6 +3,7 @@ import {blog as blogPosts, urlFor} from '../../lib/dataQueries'
 import BlockContent from '@sanity/block-content-to-react'
 import { blogSerializer} from '../../lib/serializers'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import Head from 'next/head'
 
 export default function Index({blog}){
     const backgroundImage = {
@@ -14,6 +15,9 @@ export default function Index({blog}){
     const content = blog.content
     return (
         <>
+        <Head>
+            <title>{`${blog.title}`} - {process.env.siteTitle}</title>
+        </Head>
             <div className="flex z-20 items-center mt-24 lg:h-96" style={backgroundImage}>
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-center items-center relative py-4 ">
                     <div className="flex flex-col">
@@ -28,7 +32,7 @@ export default function Index({blog}){
             </div>
             <div className="container mx-auto">
                 <div className="flex lg:px-60 px-8 relative py-8 font-mitr text-center text-sm text-gray-400">
-                    <p>Article published by: {blog.author.fullname}</p>
+                    <p>Published by: {blog.author.fullname}</p>
                     {/* <p> Date: {blog._createdAt}</p> */}
                 </div>
 
@@ -60,6 +64,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     return {
         props: {
             blog: data,
+            revalidate: 60,
         }
     }
 }

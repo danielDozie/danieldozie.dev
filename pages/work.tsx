@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 // import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import ProjectSection from '../components/Work/ProjectSection'
@@ -20,7 +20,7 @@ export default function Work():JSX.Element {
   const [projectCount, setProjectCount] = useState(endPaginateValue)
   
   //using the inbuilt useEffect hook to fetch the data
-  useLayoutEffect(() => {
+  useEffect(() => {
     const workPage = client.fetch(workPageQuery, {initPaginateValue: initPaginateValue, endPaginateValue: endPaginateValue})
     const result = async() => {
     const res = await workPage
@@ -86,15 +86,3 @@ export function Loading() {
     </div>
   )
 }
-
-
-// export const getStaticProps: GetStaticProps  = async () => {
-    
-//     const workPage = client.fetch(workPageQuery, {initPaginateValue: 0, endPaginateValue: 5})
-//     const data = await workPage
-//     return {
-//         props: {
-//            allprojects: data,
-//         },
-//     };
-// }

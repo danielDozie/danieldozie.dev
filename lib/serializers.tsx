@@ -1,5 +1,8 @@
 /* eslint-disable react/display-name */
 import React from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { nord } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+
 export const homeSerializers = {
   types: {
     block: (props) => {
@@ -114,7 +117,6 @@ export const aboutMeSerializer = {
           case 'default': 
             <p>{props.children}</p>
       }
-      
     },
     marks: {
       strong: (props) => {
@@ -135,13 +137,20 @@ export const aboutMeSerializer = {
           case 'default': 
             <p>{props.children}</p>
       }
-      
-    },
+    }
   }
 }
 
 export const blogSerializer = {
   types: {
+    code: (props: { node: { language: any; code: any; }; }) => (<>
+      <div className="container mx-auto lg:px-60 px-8 py-4 ">
+      <SyntaxHighlighter language={props.node.language } style={nord}>
+        {props.node.code}
+      </SyntaxHighlighter>
+      </div>
+      </>
+    ),
     block: (props: { node: { style: any; }; children: {}; }) => {
       const style = props.node.style
       switch (style) {  
@@ -192,13 +201,13 @@ export const blogSerializer = {
       }
     }
   },
-  list: (props) =>
+  list: (props: { type: string; children: {}; }) =>
   props.type === "bullet" ? (
-    <ul className="mt-8 md:grid md:grid-cols-2 gap-6">{props.children}</ul>
+    <ul className="mx-8 md:mx-60 mt-2 gap-6">{props.children}</ul>
   ) : (
     <ol>{props.children}</ol>
   ),
-listItem: (props) =>
+listItem: (props: { type: string; children: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal; }) =>
 (props.type === "bullet" ? '' : (
   <li className="mt-6 lg:mt-0">
     <div className="flex">

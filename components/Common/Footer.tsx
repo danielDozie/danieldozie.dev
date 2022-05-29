@@ -54,13 +54,11 @@ const navigation = [
 
 
 export const Footer : React.FC <any> = () => {
-    
     return (
         <>
-            
             <div className="max-w-7xl flex flex-col mb-8 mx-auto mt-8 px-4 sm:px-6 md:flex md:items-center md:justify-center lg:px-8">
             <p className="font-mitr text-center text-sm text-gray-400 my-6">Believe me: Programming is a passion you develop <br />through challenging yourself to the imagination of beautiful possibilities.</p>
-            <p className="font-mitr dark:text-white text-sm text-center mb-4">This JAMStack Web Application is still under active development</p>
+            {/* <p className="font-mitr dark:text-white text-sm text-center mb-4">This JAMStack Web Application is still under active development</p> */}
                 <div className="flex justify-center space-x-8 md:py-8">
                     {navigation.map((item) => (
                         <div key={item.name}>
