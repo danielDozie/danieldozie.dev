@@ -43,7 +43,7 @@ function message(value: string): React.FC {
     return error;
 }
 
-export const GetInTouchForm: React.FC = () => {
+export const ContactForm: React.FC = () => {
     const [success, setSuccess] = useState('')
     const [sendValue, setSendValue] = useState('Send Message');
     interface Values {

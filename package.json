@@ -1,5 +1,5 @@
 {
-  "name": "Daniel",
+  "name": "daniel",
   "version": "2.0.1",
   "private": true,
   "scripts": {
@@ -15,21 +15,24 @@
     "@sanity/client": "^2.19.0",
     "axios": "^0.24.0",
     "formik": "^2.2.9",
+    "gsap": "^3.9.1",
+    "mjml-accordion": "^4.11.0",
     "moment": "^2.29.1",
     "next": "^11.1.2",
     "next-sanity": "^0.4.0",
     "next-sanity-image": "^3.1.7",
     "react": "17.0.2",
-    "react-audio-player": "^0.17.0",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
-    "react-portable-text": "^0.4.0",
+    "react-syntax-highlighter": "^15.4.5",
     "tailwind-darkmode-toggle": "^1.0.5",
-    "zustand": "^3.6.3"
+    "zustand": "^3.6.7"
   },
   "devDependencies": {
     "@iconify/react": "^3.0.1",
+    "@portabletext/react": "^1.0.6",
     "@types/react": "^17.0.21",
+    "@types/react-syntax-highlighter": "^15.5.1",
     "autoprefixer": "^10.3.2",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",

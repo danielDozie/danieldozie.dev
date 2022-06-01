@@ -110,7 +110,7 @@ const homePage = client.fetch(newHomeQuery)
 
 
 //About Me query
-const aboutMePageQuery = `*[_type == 'pages' && title == 'About me']{
+const aboutMePageQuery = `*[_type == 'pages' && title == 'About Me']{
   title,
   description,
   section[],
@@ -120,8 +120,28 @@ const aboutMePageQuery = `*[_type == 'pages' && title == 'About me']{
 }`
 const aboutMePage = client.fetch(aboutMePageQuery)
 
+const servicesQuery = `*[_type == 'pages' && title=='Services']{
+  title,
+  description,
+  slug{
+  current
+},
+section
+} +
+*[_type == 'services']{
+  _id,
+    title,
+  description,
+  link,
+  slug{
+  current
+}
+}`
+
+const servicesPage = client.fetch(servicesQuery)
+
 //Get in touch query
-const getInTouchQuery = `*[_type == 'pages' && title == 'Get in touch']{
+const contactQuery = `*[_type == 'pages' && title == 'Say Hello']{
   title,
   description,
   section[],
@@ -130,9 +150,7 @@ const getInTouchQuery = `*[_type == 'pages' && title == 'Get in touch']{
   },
 
 }`
-const getInTouchPage = client.fetch(getInTouchQuery)
-
-
+const contactPage = client.fetch(contactQuery)
 
 //blog query
 const blogQuery = `*[_type == 'blog']{
@@ -155,6 +173,75 @@ const blogQuery = `*[_type == 'blog']{
 }`
 const blog = client.fetch(blogQuery)
 
+const digitalPageQuery = `*[_type == 'services' && title == 'Digital']{
+  title,
+  description,
+  slug{
+  current
+},
+services_list,
+}`
+
+const digitalPage = client.fetch(digitalPageQuery)
+
+
+const brandingPageQuery = `*[_type == 'services' && title == 'Branding']{
+  title,
+  description,
+  slug{
+  current
+},
+services_list,
+}`
+const brandingPage = client.fetch(brandingPageQuery)
+
+const uixPageQuery = `*[_type == 'services' && title == 'UI/UX Design']{
+  title,
+  description,
+  slug{
+  current
+},
+services_list,
+}`
+const uixPage = client.fetch(uixPageQuery)
+
+const eComPageQuery = `*[_type == 'services' && title == 'E-commerce']{
+  title,
+  description,
+  slug{
+  current
+},
+services_list,
+}`
+const eComPage = client.fetch(eComPageQuery)
+
+
+
+const workPageQuery = `*[_type == 'pages' && title == 'Work']{
+  title,
+  description,
+  slug{
+  current,
+},
+section
+
+} + 
+*[_type == 'projects'][$initPaginateValue...$endPaginateValue]{
+  _id,
+  title,
+  description,
+  image{
+  asset->{
+  url
+}
+},
+link,
+tags,
+content
+}`
+
+const allwork = `count(*[_type == 'projects'])`
+
 //export data components
 export default defaultEx;
-export {logoAndMenu, homePage, aboutMePage, getInTouchPage, blog, urlFor, menu, logo, }
+export {logoAndMenu, homePage, aboutMePage, servicesPage, contactPage, blog, urlFor, menu, logo, digitalPage, brandingPage,uixPage, eComPage, workPageQuery, allwork} 

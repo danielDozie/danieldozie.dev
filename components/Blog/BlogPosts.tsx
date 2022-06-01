@@ -17,6 +17,7 @@ export const BlogPosts = (props: { data: { author: any; excerpts: any; image: an
                   key={_id}
                 >
                   <div className="flex h-full bg-center lg:w-2/5 w-full mr-8 mb-4 ">
+                    <Link href={`/blog/${slug.current}`}>
                     <Image
                       src={urlFor(image).url()}
                       width={500}
@@ -24,17 +25,18 @@ export const BlogPosts = (props: { data: { author: any; excerpts: any; image: an
                       className="rounded-lg"
                       alt={'How'}
                     />
+                    </Link>
                   </div>
                   <div className="w-full flex flex-col ">
                     <h1 className="font-mitr font-semibold text-sm md:text-lg bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 my-4">
-                      <a href={`/blog/`+ slug.current}>
+                      <Link href={`/blog/`+ slug.current}>
                       {title}
-                      </a>
+                      </Link>
                     </h1>
                     <p className="font-mitr font-light text-sm mb-5 text-gray-700 dark:text-gray-200">
                       {" "}
                       {excerpts.substr(0, 300)}{""}
-                      <a href={`/blog/`+ slug.current}><span className="text-xs bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 ">... Read More</span></a>
+                      <Link href={`/blog/`+ slug.current}><span className="text-xs bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 ">... Read More</span></Link>
                     </p>
                     <hr />
                     <div className="flex text-xs font-thin mt-2 justify-between">
