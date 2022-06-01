@@ -1,262 +1,143 @@
 /* eslint-disable react/display-name */
+import Link from 'next/link';
 import React from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { nord } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { atomDark, dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
-export const homeSerializers = {
-  types: {
-    block: (props) => {
-      const style = props.node.style
-      switch (style) {
-        case "normal":
-          return (
-            <p className="text-gray-500 dark:text-gray-200">
-              {props.children}
-            </p>
-          );
-        case "h4":
-          return (
-            <h4 className="font-archivo text-3xl font-extrabold mt-2 text-left leading-8 sm:text-3xl sm:leading-9  bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-yellow-400 to-yellow-600">
-              {props.children}
-            </h4>
-          );
-        case "h5":
-          return (
-            <h5 className="text-base leading-6 text-indigo-500 font-semibold uppercase my-8 md:my-4">
-              {props.children}
-            </h5>
-          );
-        case "default":
-          return <p>{props.children}</p>
-      }
-    },
+export const homeSerializers: any = {
+  block: {
+    normal: ({ children }) => <p className="text-gray-500 dark:text-gray-200">
+      {children}
+    </p>,
+    h4: ({ children }) => <h4 className="mt-2 text-3xl font-extrabold leading-8 text-left text-transparent font-archivo sm:text-3xl sm:leading-9 bg-clip-text bg-gradient-to-r from-pink-400 via-yellow-400 to-yellow-600">
+      {children}
+    </h4>,
+    h5: ({ children }) => <h5 className="my-8 text-base font-semibold leading-6 text-indigo-500 uppercase md:my-4">
+      {children}
+    </h5>
   },
-
-  list: (props) =>
-    props.type === "bullet" ? (
-      <ul className="mt-8 md:grid md:grid-cols-2 gap-6">{props.children}</ul>
-    ) : (
-      <ol>{props.children}</ol>
-    ),
-  listItem: (props) =>
-  (props.type === "bullet" ? '' : (
-    <li className="mt-6 lg:mt-0">
+  list: {
+    bullet: ({ children }) => <ul className="gap-6 mt-8 md:grid md:grid-cols-2">{children}</ul>,
+  },
+  listItem: {
+    bullet: ({ children }) => <li className="mt-6 lg:mt-0">
       <div className="flex">
-        <span className="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800 dark:text-green-500 dark:bg-transparent">
-          <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+        <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 dark:bg-transparent">
+          <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd">
             </path>
           </svg>
-        </span><span className="ml-4 text-base leading-6 font-medium text-gray-500 dark:text-gray-200">{props.children}</span>
+        </span><span className="ml-4 text-base font-medium leading-6 text-gray-500 dark:text-gray-200">{children}</span>
       </div>
     </li>
-  ))
-}
-
-export const techSectionSerializer = {
-  types: {
-    block: (props: { node: { style: any; }; children: {}; }) => {
-      const style = props.node.style
-      switch (style) {
-        case "normal":
-          return (
-            <p className="mt-3 max-w-3xl text-lg text-gray-500 dark:text-gray-200">
-              {props.children}
-            </p>
-          );
-        case "h2":
-          return (
-            <h2 className="font-archivo text-3xl font-extrabold sm:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-purple-800 mt-20 md:mt-0">
-              {props.children}
-            </h2>
-          );
-        case "default":
-          return <p>{props.children}</p>
-      }
-    },
-  },
-}
-
-export const homeBlogSerializer = {
-  types: {
-    block: (props: { node: { style: any; }; children: {}; }) => {
-      const style = props.node.style
-      switch (style) {
-        case "normal":
-          return (
-            <p className="text-pink-500 text-sm pt-2 dark:text-gray-300">
-              {props.children}
-            </p>
-          );
-        case "h1":
-          return (
-            <h1 className="font-archivo text-4xl  font-semibold text-left bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-yellow-400 to-yellow-800 mt-20 md:mt-0">
-              {props.children}
-            </h1>
-          );
-        case "default":
-          return <p>{props.children}</p>
-      }
-    },
-  },
-}
-
-export const aboutMeSerializer = {
-  types: {
-    custom_block: (props: { node: { style: any; }; children: {}; }) => {
-      const style = props.node.style
-      switch (style) {
-        case 'normal':
-          return (
-            <p>{props.children}</p>
-          );
-          case 'strong':
-            return (
-              <strong className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">{props.children}</strong>
-            );
-          case 'default': 
-            <p>{props.children}</p>
-      }
-    },
-    marks: {
-      strong: (props) => {
-        <strong className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">{props.node.span}</strong> 
-      }
-    },
-    block: (props) => {
-      const style = props.node.style
-      switch (style) {
-        case 'normal':
-          return (
-            <p>{props.children}</p>
-          );
-          case 'strong':
-            return (
-              <strong className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">{props.children}</strong>
-            );
-          case 'default': 
-            <p>{props.children}</p>
-      }
-    }
   }
+};
+
+
+export const techSectionSerializer: any = {
+  block: {
+    normal: ({ children }) => <p className="max-w-3xl mt-3 text-lg text-gray-500 dark:text-gray-200">
+      {children}
+    </p>,
+    h2: ({ children }) => <h2 className="mt-20 text-3xl font-extrabold text-transparent font-archivo sm:text-4xl bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-purple-800 md:mt-0">
+      {children}
+    </h2>
+  }
+};
+
+export const homeBlogSerializer: any = {
+  block: {
+    normal: ({ children }) => <p className="pt-2 text-sm text-pink-500 dark:text-gray-300">
+      {children}</p>,
+    h1: ({ children }) => <h1 className="mt-20 text-4xl font-semibold text-left text-transparent font-archivo bg-clip-text bg-gradient-to-r from-pink-400 via-yellow-400 to-yellow-800 md:mt-0">
+      {children}
+    </h1>,
+    default: ({ children }) => <h1 className="mt-20 text-4xl font-semibold text-left text-transparent font-archivo bg-clip-text bg-gradient-to-r from-pink-400 via-yellow-400 to-yellow-800 md:mt-0">
+      {children}
+    </h1>
+  },
 }
 
-export const blogSerializer = {
-  types: {
-    code: (props: { node: { language: any; code: any; }; }) => (<>
-      <div className="container mx-auto lg:px-60 px-8 py-4 ">
-      <SyntaxHighlighter language={props.node.language } style={nord}>
-        {props.node.code}
-      </SyntaxHighlighter>
+export const aboutMeSerializer: any = {
+  custom_block: {
+    normal: ({ children }) => <p>{children}</p>,
+    strong: ({ children }) => <strong className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">{children}</strong>
+  }
+};
+
+
+export const blogSerializer:any = {
+  // code: {
+  //   code: ({ children }) => <div className="container px-8 py-4 mx-auto lg:px-60 ">
+  //     <SyntaxHighlighter language="javascript" style={dark}>
+  //       {children}
+  //     </SyntaxHighlighter>
+  //   </div>
+  // },
+  block: {
+    normal: ({ children }) => <p className="px-8 py-4 text-sm text-left text-gray-600 lg:px-60 font-mitr dark:text-gray-300">
+      {children}
+    </p>,
+    h1: ({ children }) => <h1 className="px-8 text-2xl font-semibold text-left text-gray-600 font-archivo lg:px-60 lg:text-4xl bg-clip-text dark:text-gray-300">
+      {children}
+    </h1>,
+    h2: ({ children }) => <h2 className="px-8 mt-20 text-3xl font-extrabold text-gray-600 font-archivo lg:px-60 sm:text-4xl bg-clip-text dark:text-gray-300 to-purple-800 md:mt-0">
+      {children}
+    </h2>,
+    h3: ({ children }) => <h3 className="px-8 mt-20 text-2xl font-extrabold text-gray-600 font-archivo lg:px-60 sm:text-3xl bg-clip-text dark:text-gray-300 md:mt-0">
+      {children}
+    </h3>,
+    h4: ({ children }) => <h4 className="px-8 mt-20 text-xl font-extrabold text-gray-600 font-archivo lg:px-60 sm:text-2xl bg-clip-text dark:text-gray-300 md:mt-0">
+      {children}
+    </h4>,
+    h5: ({ children }) => <h5 className="px-8 mt-20 text-lg font-extrabold text-gray-600 font-archivo lg:px-60 sm:text-xl bg-clip-text dark:text-gray-300 md:mt-0">
+      {children}
+    </h5>,
+    h6: ({ children }) => <h6 className="px-8 mt-20 text-base font-extrabold text-gray-600 font-archivo lg:px-60 sm:text-lg bg-clip-text dark:text-gray-300 md:mt-0">
+      {children}
+    </h6>
+  },
+  list: {
+    bullet: ({ children }) => <ul className="gap-6 mx-8 mt-2 md:mx-60">{children}</ul>,
+  },
+  listItem: {
+    bullet: ({ children }) => <li className="mt-6 lg:mt-0">
+      <div className="flex">
+        <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 dark:bg-transparent">
+          <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd">
+            </path>
+          </svg>
+        </span><span className="ml-4 text-base font-medium leading-6 text-gray-500 dark:text-gray-200">{children}</span>
       </div>
-      </>
-    ),
-    block: (props: { node: { style: any; }; children: {}; }) => {
-      const style = props.node.style
-      switch (style) {  
-        case "normal":
-          return (
-            <p className="lg:px-60 px-8 py-4 font-mitr text-left text-sm text-gray-600  dark:text-gray-300">
-              {props.children}
-            </p>
-          );
-        case "h1":
-          return (
-            <h1 className="font-archivo lg:px-60 lg:text-4xl px-8 text-2xl font-semibold text-left bg-clip-text text-gray-600  dark:text-gray-300">
-              {props.children}
-            </h1>
-          );
-        case "h2":
-          return (
-            <h2 className="font-archivo text-3xl lg:px-60 px-8 font-extrabold sm:text-4xl bg-clip-text text-gray-600  dark:text-gray-300 to-purple-800 mt-20 md:mt-0">
-              {props.children}
-            </h2>
-          );
-        case "h3": 
-          return (  
-            <h3 className="font-archivo text-2xl lg:px-60 px-8 font-extrabold sm:text-3xl bg-clip-text text-gray-600  dark:text-gray-300 mt-20 md:mt-0">
-              {props.children}
-            </h3>
-          );
-        case "h4":
-          return (
-            <h4 className="font-archivo text-xl lg:px-60 px-8 font-extrabold sm:text-2xl bg-clip-text text-gray-600  dark:text-gray-300 mt-20 md:mt-0">
-              {props.children}
-            </h4>
-          );
-        case "h5":
-          return (
-            <h5 className="font-archivo text-lg lg:px-60 px-8 font-extrabold sm:text-xl bg-clip-text text-gray-600  dark:text-gray-300 mt-20 md:mt-0">
-              {props.children}
-            </h5>
-          );
-        case "h6":  
-          return (
-            <h6 className="font-archivo text-base lg:px-60 px-8 font-extrabold sm:text-lg bg-clip-text text-gray-600  dark:text-gray-300 mt-20 md:mt-0">
-              {props.children}
-            </h6>
-          );
-        case "default":
-          return <p>{props.children}</p>
-      }
-    }
+    </li>
   },
-  list: (props: { type: string; children: {}; }) =>
-  props.type === "bullet" ? (
-    <ul className="mx-8 md:mx-60 mt-2 gap-6">{props.children}</ul>
-  ) : (
-    <ol>{props.children}</ol>
-  ),
-listItem: (props: { type: string; children: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal; }) =>
-(props.type === "bullet" ? '' : (
-  <li className="mt-6 lg:mt-0">
-    <div className="flex">
-      <span className="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800 dark:text-green-500 dark:bg-transparent">
-        <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd">
-          </path>
-        </svg>
-      </span><span className="ml-4 text-base leading-6 font-medium text-gray-500 dark:text-gray-200">{props.children}</span>
-    </div>
-  </li>
-))
+  marks: {
+    code: ({ children }) => <div className="container py-4 mx-auto ">
+      <SyntaxHighlighter wrapLongLines={true} wrapLineNumbers={true} language="javascript" style={atomDark}>
+        {children}
+      </SyntaxHighlighter>
+    </div>,
+    link: ({ children }) => <a className="mr-5 text-blue-500 cursor-pointer hover:text-gray-900 dark:hover:text-gray-200">
+    {children}
+  </a>,
+  }
 
 }
 
 
-export const servicesSerializer = {
-  types: {
-    block: (props: { node: { style: any; }; children: {}; }) => {
-      const style = props.node.style
-      switch (style) {  
-        case "normal":
-          return (
-            <p className="lg:px-60 py-4 font-mitr text-center font-normal text-gray-600  dark:text-gray-300">
-              {props.children}
-            </p>
-          );
-        case "default":
-          return <p>{props.children}</p>
-      }
-    }
+export const servicesSerializer: any = {
+  block: {
+    normal: ({ children }) => <p className="py-4 font-normal text-center text-gray-600 lg:px-60 font-mitr dark:text-gray-300">
+      {children}
+    </p>,
   }
 }
 
-
-export const servicesDetailsSerializer = {
-  types: {
-    block: (props: { node: { style: any; }; children: {}; }) => {
-      const style = props.node.style
-      switch (style) {  
-        case "normal":
-          return (
-            <p className="text-sm lg:text-base text-gray-500 dark:text-gray-300">
-              {props.children}
-            </p>
-          );
-        case "default":
-          return <p className="text-sm lg:text-lg text-gray-500 dark:text-gray-300">{props.children}</p>
-      }
-    }
+export const servicesDetailsSerializer: any = {
+  block: {
+    normal: ({ children }) => <p className="text-sm text-gray-500 lg:text-base dark:text-gray-300">
+      {children}
+    </p>
   }
 }
