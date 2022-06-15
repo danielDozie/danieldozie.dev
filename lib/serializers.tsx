@@ -1,8 +1,7 @@
 /* eslint-disable react/display-name */
-import Link from 'next/link';
 import React from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomDark, dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 export const homeSerializers: any = {
   block: {
@@ -61,18 +60,22 @@ export const homeBlogSerializer: any = {
 export const aboutMeSerializer: any = {
   custom_block: {
     normal: ({ children }) => <p>{children}</p>,
-    strong: ({ children }) => <strong className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">{children}</strong>
-  }
+    strong: ({ children }) => <strong className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">{children}</strong>,
+  },
 };
 
 
-export const blogSerializer:any = {
+export const blogSerializer: any = {
+  code: ({props}:any) => (
+    <pre data-language={props.language}>
+      <code>{props.code}</code>
+    </pre>
+  ),
   // code: {
-  //   code: ({ children }) => <div className="container px-8 py-4 mx-auto lg:px-60 ">
-  //     <SyntaxHighlighter language="javascript" style={dark}>
-  //       {children}
-  //     </SyntaxHighlighter>
-  //   </div>
+  //   code: ({ node = {} }) => {
+  //     const { children, language }:any = node
+  //     return <SyntaxHighlighter language={language || "text"} style={atomDark} lineProps={{ style: { wordBreak: 'break-all', whiteSpace: 'pre-wrap' } }} wrapLines={true}>{children}</SyntaxHighlighter>
+  //   },
   // },
   block: {
     normal: ({ children }) => <p className="px-8 py-4 text-sm text-left text-gray-600 lg:px-60 font-mitr dark:text-gray-300">
@@ -113,17 +116,22 @@ export const blogSerializer:any = {
     </li>
   },
   marks: {
-    code: ({ children }) => <div className="container py-4 mx-auto ">
-      <SyntaxHighlighter wrapLongLines={true} wrapLineNumbers={true} language="javascript" style={atomDark}>
+    code: ({ children }) => <div className="container py-2 mx-auto ">
+      <SyntaxHighlighter language={`jsx`} style={atomDark} wrapLongLines={true}>
         {children}
       </SyntaxHighlighter>
     </div>,
-    link: ({ children }) => <a className="mr-5 text-blue-500 cursor-pointer hover:text-gray-900 dark:hover:text-gray-200">
-    {children}
-  </a>,
-  }
-
-}
+    strong: ({ children }) => <strong className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">{children}</strong>,
+    link: ({ value, children }) => {
+      const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
+      return (
+        <a href={value?.href} target={target} rel={target === '_blank' && 'noindex nofollow'} className="text-blue-500 cursor-pointer hover:text-gray-900 dark:hover:text-gray-200">
+          {children}
+        </a>
+      )
+    },
+  },
+};
 
 
 export const servicesSerializer: any = {

@@ -24,7 +24,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
-    "react-syntax-highlighter": "^15.4.5",
+    "react-syntax-highlighter": "^15.5.0",
+    "react-syntax-highlighter-virtualized-renderer": "^1.1.0",
     "tailwind-darkmode-toggle": "^1.0.5",
     "zustand": "^3.6.7"
   },
