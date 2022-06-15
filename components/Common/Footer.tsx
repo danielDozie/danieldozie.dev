@@ -70,7 +70,7 @@ export const Footer : React.FC <any> = () => {
                     ))}
                 </div>
                 <div className="font-mitr mt-8  md:mt-0 md:order-1">
-                    <p className="font-mitr text-center text-base text-gray-400">&copy; 2021 Daniel Dozie. All rights reserved.</p>
+                    <p className="font-mitr text-center text-base text-gray-400">&copy; {new Date().getFullYear()} Daniel Dozie. All rights reserved.</p>
                 </div>
             </div>
         </>

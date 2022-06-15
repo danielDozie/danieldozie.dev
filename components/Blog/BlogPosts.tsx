@@ -17,7 +17,7 @@ export const BlogPosts = (props: { data: { author: any; excerpts: any; image: an
                   key={_id}
                 >
                   <div className="flex h-full bg-center lg:w-2/5 w-full mr-8 mb-4 ">
-                    <Link href={`/blog/${slug.current}`}>
+                    <Link href={`/blog/${slug.current}`} passHref>
                     <Image
                       src={urlFor(image).url()}
                       width={500}
@@ -36,7 +36,7 @@ export const BlogPosts = (props: { data: { author: any; excerpts: any; image: an
                     <p className="font-mitr font-light text-sm mb-5 text-gray-700 dark:text-gray-200">
                       {" "}
                       {excerpts.substr(0, 300)}{""}
-                      <Link href={`/blog/`+ slug.current}><span className="text-xs bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 ">... Read More</span></Link>
+                      <Link href={`/blog/`+ slug.current} passHref><span className="text-xs bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 cursor-pointer">... Read More</span></Link>
                     </p>
                     <hr />
                     <div className="flex text-xs font-thin mt-2 justify-between">
@@ -55,7 +55,7 @@ export const BlogPosts = (props: { data: { author: any; excerpts: any; image: an
           </div>
         </div>
         <div className="justify-center text-center py-8 lg:py-0 md:py-0 md:pt-16">
-          <Link href={`/blog/`}>
+          <Link href={`/blog/`} passHref>
             <button className="px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
               Load More...
             </button>
