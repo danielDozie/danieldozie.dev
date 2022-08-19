@@ -1,7 +1,8 @@
 /* eslint-disable react/display-name */
 import React from 'react';
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import {
+  atomDark, dark,funky,okaidia,solarizedlight,tomorrow,twilight,prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 
 export const homeSerializers: any = {
@@ -70,7 +71,7 @@ export const blogSerializer: any = {
   types: {
     code: ({ value }) => <div className="md:w-4/6 px-8 py-2 mx-auto text-sm">
       <SyntaxHighlighter language={value.language} style={atomDark} wrapLongLines={true}>
-        {value.code}
+        {value.code}›
       </SyntaxHighlighter>
     </div>,
     strong: ({ children }) => <strong className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">{children}</strong>,
