@@ -11,6 +11,5 @@ Formik
 Hosting:
 
 Vercel : https://badtfolio.vercel.app
-Netlify : http://badtfolio.netlify.app
 
 Still using the to test and work with new tools and libraries.
