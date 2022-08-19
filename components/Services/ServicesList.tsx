@@ -23,7 +23,7 @@ export default function ServicesList(props: Props ) {
                 <div
                   className={` flex flex-col py-4 px-4 rounded-lg shadow-2xl  dark:border-gray-600 bottom-2 `+ styles.blobImage} key={service._id}>
                     <div>
-                      <Link href={`/services/`+ service.slug.current}>
+                      <Link href={`/services/`+ service.slug.current} passHref>
                         <h1 className="text-xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-yellow-400 to-yellow-800">{service.title}</h1>
                         </Link>
                     </div>

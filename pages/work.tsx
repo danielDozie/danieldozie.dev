@@ -56,12 +56,12 @@ export default function Work():JSX.Element {
       btn.style.display = 'none'
     }
       data()
-    }, [projects])
+    }, [endPaginateValue, projectCount, projects])
   
   return (
     <>
       <Head>
-          <title>{process.env.siteTitle} - {project[0]?.title}</title>
+        <title>{process.env.siteTitle + " - " + project[0]?.title}</title>
           <meta name={project[0]?.titele} content={project[0]?.description}></meta>
       </Head>
       <WorkHeroSection primaryHeading={project[0]?.section[0]?.primaryHeading} secondaryHeading={project[0]?.section[0]?.secondaryHeading} />

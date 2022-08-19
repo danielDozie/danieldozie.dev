@@ -1,5 +1,5 @@
 import React from 'react'
-import {blog as blogPosts, urlFor} from '../../lib/dataQueries'
+import {blog as BlogPosts, urlFor} from '../../lib/dataQueries'
 import {PortableText} from '@portabletext/react'
 import { blogSerializer} from '../../lib/serializers'
 import { GetStaticPaths, GetStaticProps } from 'next'
@@ -35,10 +35,7 @@ export default function Index({blog}){
                     <p>Published by: {blog.author.fullname}</p>
                     {/* <p> Date: {blog._createdAt}</p> */}
                 </div>
-
-                <div>
-                    <PortableText value={content} components={blogSerializer} />
-                </div>    
+                <PortableText value={content} components={blogSerializer} />
             </div>
         </>
     )
@@ -47,7 +44,7 @@ export default function Index({blog}){
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const blogs = await blogPosts
+    const blogs = await BlogPosts
     const paths = blogs.map((blog: { slug: { current: string } }) => ({
         params: { slug: blog.slug.current } 
     }))
@@ -58,12 +55,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
-    const blogs = await blogPosts
+    const blogs = await BlogPosts
     const data = blogs.find((blog: { slug: { current: string } }) => blog.slug.current === params.slug)
     return {
         props: {
-            blog: data,
-            revalidate: 60,
+            blog: data
         }
     }
 }

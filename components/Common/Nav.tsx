@@ -27,14 +27,14 @@ export const Nav  = () => {
     <>
       <header className="h-24 flex items-center w-full bg-transparent z-40 fixed backdrop-filter backdrop-blur-lg">
         <div className="container mx-auto px-6 flex items-center justify-between">
-          <Link href={"/"}>
-            <div className="uppercase  font-black text-3xl flex items-center font-archivo">
+          <Link href={"/"} passHref>
+            <div className="uppercase font-black text-3xl flex items-center font-archivo cursor-pointer">
                   <img src={urlFor(logo.icon).url()} width={`42px`} height={`40px`} alt={logo.name} />
               <div className="flex flex-col">
-                <span className="text-md ml-4 mt-1 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+                <span className="text-center text-md ml-4 mt-1 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
                   {logo.abbreviation}
                 </span>
-                <span className="font-mitr capitalize font-light text-xs bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 ml-4">
+                <span className="text-center font-mitr capitalize font-light text-xs bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 ml-4">
                   {logo.name}
                 </span>
               </div>
@@ -56,11 +56,11 @@ export const Nav  = () => {
               ))}
               <div
                   className="rounded-md py-2 px-6 flex text-white bg-indigo-600 hover:bg-indigo-700">
-                  <Link
-                    href={`/contact`}
+                  <a
+                  href="https://docs.google.com/document/d/1K39pFqgdNl9GqoKUnqoyY6vf1z82D5kLJflwy5xBuD0/edit?usp=sharing" target="_blank" rel="noopener noreferrer"
                   >
-                    {`Get in Touch`}
-                  </Link>
+                    Resume
+                  </a>
                 </div>
             </div>
             <Toggle />

@@ -13,7 +13,7 @@ const Homepage = ({data}) => {
   return (
         <>
         <Head>
-          <title>{`Welcome`} - {process.env.siteTitle}</title>
+          <title>{`Welcome - ` + process.env.siteTitle}</title>
         </Head>
 
         <HeroSection primaryHeading={data[0].HeroSection.primaryHeading} secondaryHeading={data[0].HeroSection.secondaryHeading} image={data[0].HeroSection.image} />

@@ -10,7 +10,7 @@ export default function Services({data}) {
   return (
     <>
     <Head>
-      <title>{process.env.siteTitle} - {data[0].title}</title>
+        <title>{process.env.siteTitle + " - " + data[0]?.title}</title>
     </Head>
       <ServicesHeroSection primaryHeading={data[0].section[0].primaryHeading} secondaryHeading={data[0].section[0].secondaryHeading} />
       <ServicesContentSection content={data[0].section} />
