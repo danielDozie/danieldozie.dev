@@ -1,6 +1,6 @@
 My Portfolio Website
 
-Tech Used:
+Tech Stack:
 Typescript - React/Nextjs
 Sanity.io (For Data(contents))
 TailwindCss
