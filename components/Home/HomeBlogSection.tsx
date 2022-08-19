@@ -9,8 +9,16 @@ import { urlFor } from "../../lib/dataQueries";
 import moment from "moment";
 
 interface HomeBlogSectionProps {
-  block: [];
-  custom_blogs: [];
+  block: []
+  custom_blogs: {
+    title: string;
+    slug: { current: string };
+    author: {fullname: string};
+    excerpts: string;
+    image: string;
+    _createdAt: string;
+    _id: string;
+  }[];
 }
 
 export const HomeBlogSection = (props: HomeBlogSectionProps) => {
@@ -27,18 +35,18 @@ export const HomeBlogSection = (props: HomeBlogSectionProps) => {
         <div>
         {/* <h1 className={`font-archivo text-3xl font-extrabold sm:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-purple-800 text-center`}>Featured</h1> */}
           <div className="grid grid-cols-1 gap-8 p-4 md:grid-cols-2 lg:mt-0 lg:grid-cols-2 md:p-10 ">
-              {Blogs.map(({ author,excerpts, image, slug, title, _createdAt, _id }:any) => (
+              {Blogs.map(({ author,excerpts, image, slug, title, _createdAt, _id }) => (
                 <div
                   className={`flex flex-col md:flex-row md:justify-between py-4 px-4 rounded-lg shadow-2xl  dark:border-gray-600 bottom-2`} key={_id}>
                   <div className="flex w-full h-full mb-4 mr-8 bg-center ">
                     <Link href={`/blog/${slug.current}`}>
-                    <Image
-                      src={urlFor(image).url()}
-                      width={500}
-                      height={"300px"}
-                      className="rounded-lg"
-                      alt={'image'}
-                    />
+                      <Image
+                        src={urlFor(image).url()}
+                        width={500}
+                        height={"300px"}
+                        className="rounded-lg"
+                        alt={'image'}
+                      />
                     </Link>
                   </div>
                   <div className="flex flex-col w-full ">

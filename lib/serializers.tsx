@@ -3,6 +3,7 @@ import React from 'react';
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
+
 export const homeSerializers: any = {
   block: {
     normal: ({ children }) => <p className="text-gray-500 dark:text-gray-200">
@@ -66,59 +67,10 @@ export const aboutMeSerializer: any = {
 
 
 export const blogSerializer: any = {
-  code: ({props}:any) => (
-    <pre data-language={props.language}>
-      <code>{props.code}</code>
-    </pre>
-  ),
-  // code: {
-  //   code: ({ node = {} }) => {
-  //     const { children, language }:any = node
-  //     return <SyntaxHighlighter language={language || "text"} style={atomDark} lineProps={{ style: { wordBreak: 'break-all', whiteSpace: 'pre-wrap' } }} wrapLines={true}>{children}</SyntaxHighlighter>
-  //   },
-  // },
-  block: {
-    normal: ({ children }) => <p className="px-8 py-4 text-sm text-left text-gray-600 lg:px-60 font-mitr dark:text-gray-300">
-      {children}
-    </p>,
-    h1: ({ children }) => <h1 className="px-8 text-2xl font-semibold text-left text-gray-600 font-archivo lg:px-60 lg:text-4xl bg-clip-text dark:text-gray-300">
-      {children}
-    </h1>,
-    h2: ({ children }) => <h2 className="px-8 mt-20 text-3xl font-extrabold text-gray-600 font-archivo lg:px-60 sm:text-4xl bg-clip-text dark:text-gray-300 to-purple-800 md:mt-0">
-      {children}
-    </h2>,
-    h3: ({ children }) => <h3 className="px-8 mt-20 text-2xl font-extrabold text-gray-600 font-archivo lg:px-60 sm:text-3xl bg-clip-text dark:text-gray-300 md:mt-0">
-      {children}
-    </h3>,
-    h4: ({ children }) => <h4 className="px-8 mt-20 text-xl font-extrabold text-gray-600 font-archivo lg:px-60 sm:text-2xl bg-clip-text dark:text-gray-300 md:mt-0">
-      {children}
-    </h4>,
-    h5: ({ children }) => <h5 className="px-8 mt-20 text-lg font-extrabold text-gray-600 font-archivo lg:px-60 sm:text-xl bg-clip-text dark:text-gray-300 md:mt-0">
-      {children}
-    </h5>,
-    h6: ({ children }) => <h6 className="px-8 mt-20 text-base font-extrabold text-gray-600 font-archivo lg:px-60 sm:text-lg bg-clip-text dark:text-gray-300 md:mt-0">
-      {children}
-    </h6>
-  },
-  list: {
-    bullet: ({ children }) => <ul className="gap-6 mx-8 mt-2 md:mx-60">{children}</ul>,
-  },
-  listItem: {
-    bullet: ({ children }) => <li className="mt-6 lg:mt-0">
-      <div className="flex">
-        <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 dark:bg-transparent">
-          <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd">
-            </path>
-          </svg>
-        </span><span className="ml-4 text-base font-medium leading-6 text-gray-500 dark:text-gray-200">{children}</span>
-      </div>
-    </li>
-  },
-  marks: {
-    code: ({ children }) => <div className="container py-2 mx-auto ">
-      <SyntaxHighlighter language={`jsx`} style={atomDark} wrapLongLines={true}>
-        {children}
+  types: {
+    code: ({ value }) => <div className="md:w-4/6 px-8 py-2 mx-auto text-sm">
+      <SyntaxHighlighter language={value.language} style={atomDark} wrapLongLines={true}>
+        {value.code}
       </SyntaxHighlighter>
     </div>,
     strong: ({ children }) => <strong className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">{children}</strong>,
@@ -131,12 +83,51 @@ export const blogSerializer: any = {
       )
     },
   },
+  block: {
+    normal: ({ children }) => <p className="px-8 py-2 text-sm text-left text-gray-600 lg:px-60 font-mitr dark:text-gray-300">
+      {children}
+    </p>,
+    h1: ({ children }) => <h1 className="px-8 pt-8 text-xl font-semibold text-left text-gray-600 font-archivo lg:px-60 bg-clip-text dark:text-gray-300">
+      {children}
+    </h1>,
+    h2: ({ children }) => <h2 className="px-8 pt-8 mt-2 text-xl font-extrabold text-gray-600 font-archivo lg:px-60 bg-clip-text dark:text-gray-300 to-purple-800 md:mt-0">
+      {children}
+    </h2>,
+    h3: ({ children }) => <h3 className="px-8 mt-2 text-xl font-extrabold text-gray-600 font-archivo lg:px-60 bg-clip-text dark:text-gray-300 md:mt-0">
+      {children}
+    </h3>,
+    h4: ({ children }) => <h4 className="px-8 mt-2 text-xl font-extrabold text-gray-600 font-archivo lg:px-60 bg-clip-text dark:text-gray-300 md:mt-0">
+      {children}
+    </h4>,
+    h5: ({ children }) => <h5 className="px-8 mt-2 text-lg font-extrabold text-gray-600 font-archivo lg:px-60  bg-clip-text dark:text-gray-300 md:mt-0">
+      {children}
+    </h5>,
+    h6: ({ children }) => <h6 className="px-8 mt-2 text-base font-extrabold text-gray-600 font-archivo lg:px-60 bg-clip-text dark:text-gray-300 md:mt-0">
+      {children}
+    </h6>
+  },
+  list: {
+    bullet: ({ children }) => <ul className="gap-6 mx-8 mt-2 md:mx-60">{children}</ul>,
+  },
+  listItem: {
+    bullet: ({ children }) => <li className="mt-2 lg:mt-2">
+      <div className="flex">
+        <span className="flex items-center justify-center flex-shrink-0 w-4 h-4 text-green-800 bg-green-100 rounded-full dark:text-green-500 dark:bg-transparent">
+          <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd">
+            </path>
+          </svg>
+        </span>
+        <span className="ml-2 md:-mt-1 text-sm font-normal text-gray-500 dark:text-gray-200">{children}</span>
+      </div>
+    </li>
+  },
 };
 
 
 export const servicesSerializer: any = {
   block: {
-    normal: ({ children }) => <p className="py-4 font-normal text-center text-gray-600 lg:px-60 font-mitr dark:text-gray-300">
+    normal: ({ children }) => <p className="py-2 font-normal text-center text-gray-600 lg:px-60 font-mitr dark:text-gray-300">
       {children}
     </p>,
   }

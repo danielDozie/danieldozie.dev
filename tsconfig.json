@@ -16,13 +16,18 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "pages/api/messageHandler.tsx", "components/**/*.tsx", "components/**/*.js", "pages/services/NOT_USEFUL"],
+    "**/*.tsx",
+    "pages/api/messageHandler.tsx",
+    "components/**/*.tsx",
+    "components/**/*.js",
+    "pages/services/NOT_USEFUL"
+  ],
   "exclude": [
     "node_modules"
   ]

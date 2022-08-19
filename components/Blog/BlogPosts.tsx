@@ -3,7 +3,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { urlFor } from '../../lib/dataQueries'
 
-export const BlogPosts = (props: { data: { author: any; excerpts: any; image: any; slug: any; title: any; _createdAt: any; _id: any }[] }) => {
+
+export const BlogPosts = (props: { data: { author: any, excerpts: any, image: any, slug: any, title: any, _createdAt: any, _id: any }[] }) => {
     return (
         <>
       <div className="max-w-5xl mx-auto md:py-8 sm:px-6 lg:py-16 h-full">
