@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import {urlFor} from '../../lib/dataQueries'
 
@@ -11,7 +12,8 @@ type ITEMS = {
   image: string,
   tags: any,
   title: string,
-  link:string,
+  link: string,
+  content: any,
 }
 
 export default function ProjectSection(props: PROPS) {
@@ -31,14 +33,14 @@ export default function ProjectSection(props: PROPS) {
         <div className="max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-10">
           <div>
             <div className="flex text-gray-500 dark:text-gray-300 gap gap-2">
-            {item.tags.map((tag: any) => (
-            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800" key={Math.floor(Math.random() * 99999)}>
+            {item.tags.map((tag: any, index: number) =>
+            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800" key={index}>
               <svg className="-ml-1 mr-1.5 h-2 w-2 text-indigo-400" fill="currentColor" viewBox="0 0 8 8">
                 <circle cx={4} cy={4} r={3} />
               </svg>
               {tag}
             </span>
-            ))}
+            )}
               </div>
             </div>
             <h2 className="mt-6 text-3xl font-extrabold text-gray-500 dark:text-gray-300 sm:text-4xl">
@@ -48,13 +50,17 @@ export default function ProjectSection(props: PROPS) {
               {item.description}
             </p>
             <div className="mt-8 overflow-hidden">
-              <dl className="-mx-8 -mt-8 flex flex-wrap">
-                <div className="flex flex-col px-8 pt-8">
+              <div className="-mx-8 -mt-8 flex flex-wrap">
+                <div className="flex flex-row gap-8 px-8 pt-8">
                   <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    <dd className="order-1 text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 sm:text-3xl">Visit Website </dd>
-                  </a>
+                    <p className="order-1 text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 sm:text-3xl">Visit Website </p>
+                    </a>
+                    {/* <div className="flex flex-col">
+                      <p className="text-xs font-light text-gray-500 dark:text-gray-400">Built with</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">{item?.content[0]?.children[0]?.text}</p>
+                    </div> */}
                 </div>
-              </dl>
+              </div>
             </div>
           </div>
         </div>

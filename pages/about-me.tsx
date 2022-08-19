@@ -10,7 +10,7 @@ export default function About({ data }) {
     return (
         <>
             <Head>
-                <title>{process.env.siteTitle} - {data[0].title}</title>
+                <title>{process.env.siteTitle + " - " + data[0]?.title}</title>
                 <meta name={data[0].description} content={data[0].description}></meta>
             </Head>
             <AboutHeroSection primaryHeading={data[0].section[0].primaryHeading} secondaryHeading={data[0].section[0].secondaryHeading} />

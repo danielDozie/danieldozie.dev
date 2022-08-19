@@ -60,7 +60,7 @@ export const MobileIcon = () => {
                   />
                 </div>
               </div>
-              <Link href="/">
+              <Link href="/" passHref>
               <div onClick={closeMenu} className="uppercase font-black text-3xl flex items-center font-archivo justify-center -mt-4">
                     <img src={urlFor(logo.icon).url()} width={`42px`} height={`40px`} alt={logo.name} />
                 <div className="flex flex-col">
@@ -90,11 +90,11 @@ export const MobileIcon = () => {
               ))}
               <div
                  onClick={closeMenu} className="flex items-center justify-center rounded-md py-2 px-6 text-white bg-indigo-600 hover:bg-indigo-700 mx-20">
-                  <Link
-                    href={`/contact`}
+                  <a
+                  href="https://docs.google.com/document/d/1K39pFqgdNl9GqoKUnqoyY6vf1z82D5kLJflwy5xBuD0/edit?usp=sharing" target="_blank" rel="noopener noreferrer"
                   >
-                    {`Get in Touch`}
-                  </Link>
+                    Resume
+                  </a>
                 </div>
             </div>
           </Dialog.Description>

@@ -2,7 +2,7 @@
 import React from 'react';
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {
-  atomDark, dark,funky,okaidia,solarizedlight,tomorrow,twilight,prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+  atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 
 export const homeSerializers: any = {
@@ -74,15 +74,6 @@ export const blogSerializer: any = {
         {value.code}›
       </SyntaxHighlighter>
     </div>,
-    strong: ({ children }) => <strong className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">{children}</strong>,
-    link: ({ value, children }) => {
-      const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
-      return (
-        <a href={value?.href} target={target} rel={target === '_blank' && 'noindex nofollow'} className="text-blue-500 cursor-pointer hover:text-gray-900 dark:hover:text-gray-200">
-          {children}
-        </a>
-      )
-    },
   },
   block: {
     normal: ({ children }) => <p className="px-8 py-2 text-sm text-left text-gray-600 lg:px-60 font-mitr dark:text-gray-300">
@@ -105,7 +96,19 @@ export const blogSerializer: any = {
     </h5>,
     h6: ({ children }) => <h6 className="px-8 mt-2 text-base font-extrabold text-gray-600 font-archivo lg:px-60 bg-clip-text dark:text-gray-300 md:mt-0">
       {children}
-    </h6>
+    </h6>,
+    
+  },
+  marks: {
+    strong: ({ children }) => <strong className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">{children}</strong>,
+    link: ({ value, children }) => {
+      const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
+      return (
+        <a href={value?.href} target={target} rel={target === '_blank' && 'noindex nofollow'} className="text-blue-500 cursor-pointer hover:text-gray-900 dark:hover:text-gray-200">
+          {children}
+        </a>
+      )
+    },
   },
   list: {
     bullet: ({ children }) => <ul className="gap-6 mx-8 mt-2 md:mx-60">{children}</ul>,

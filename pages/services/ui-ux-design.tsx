@@ -9,7 +9,7 @@ export default function Index({data}) {
   return (
     <>
     <Head>
-        <title>{process.env.siteTitle} - {data[0].title} Service</title>
+              <title>{process.env.siteTitle + " - " + data[0]?.title} Service</title>
     </Head>
         <InnerHeroSection title={data[0].title} description={data[0].description} />
         <InnerDetails data={data[0].services_list} _key={''} title={''} content={undefined} />
