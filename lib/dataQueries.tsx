@@ -217,7 +217,7 @@ const eComPage = client.fetch(eComPageQuery)
 
 
 
-const workPageQuery = `*[_type == 'pages' && title == 'Work']{
+const workPageQuery = `*[_type == 'pages' && title == 'Work'] {
   title,
   description,
   slug{
@@ -226,7 +226,7 @@ const workPageQuery = `*[_type == 'pages' && title == 'Work']{
 section
 
 } + 
-*[_type == 'projects'][$initPaginateValue...$endPaginateValue]{
+*[_type == 'projects']| order(order asc)[$initPaginateValue...$endPaginateValue]{
   _id,
   title,
   description,
