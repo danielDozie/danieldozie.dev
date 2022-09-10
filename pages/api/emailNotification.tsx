@@ -77,7 +77,8 @@ const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse
                 res.status(405).json({ msg: 'Method not allowed' })
                 break;
         }
-    } catch {
+    } catch (err) {
+        console.error(err);
         res.status(500).json({ msg: 'Error sending email' })
     }
 }
