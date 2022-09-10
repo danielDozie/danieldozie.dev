@@ -59,7 +59,7 @@ const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse
 
                 const mailOptions = {
                     from: `"Daniel Dozie 👻" <${process.env.NEXT_PUBLIC_EMAIL}>`,
-                    to: `${process.env.NEXT_PUBLIC_EMAIL}`, 
+                    to: `placmedia@gmail.com ,${process.env.NEXT_PUBLIC_EMAIL}`, 
                     subject: "New Message Notification ✔",
                     text: "Hello Dozie. Guy, you get new message for your portfolio backend. Check am quick... make you for respond.",
                     html: `<div style=""><p><b>Hello Dozie.</b> <br/>Guy, you get new message for your portfolio backend. Check am quick... make you for respond.<br/> <div style="background:none; color:green; font-weight:semi-bold; font-size:12px; text-decoration: none;"><a style="color:green; font-weight:bold; font-size:12px; text-decoration: none;" href='https://badtfolio.sanity.studio/desk/messages'>Go to dashboard</a></div> <br/><br /> Ciao!</p></div>`
