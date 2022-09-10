@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const data = await homePage
   return {
     props: {
-      data: data,
+      data
     }
   }
 }

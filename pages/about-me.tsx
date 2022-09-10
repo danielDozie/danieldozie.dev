@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps  = async () => {
     const data = await aboutMePage
     return {
         props: {
-            data: data,
+            data
         },
     }
 }

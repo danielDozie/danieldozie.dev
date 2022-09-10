@@ -24,7 +24,7 @@ export const getStaticProps : GetStaticProps  = async () => {
     const data = await servicesPage
     return {
         props: {
-            data: data,
+            data
     }
 }
 }

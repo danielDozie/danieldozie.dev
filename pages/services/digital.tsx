@@ -18,10 +18,10 @@ export default function Index({data}) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const result = await digitalPage
+    const data = await digitalPage
     return {
         props: {
-            data: result,
+            data
         },
     }
 }

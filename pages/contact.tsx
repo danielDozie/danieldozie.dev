@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps  = async () => {
     const data = await contactPage
     return {
         props: {
-            data: data,
+            data,
     }
 }
 }

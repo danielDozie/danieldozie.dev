@@ -1,9 +1,10 @@
 const sanityClient = require('@sanity/client')
+
 const client = sanityClient({
-  projectId: 'xdm2fqtm',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: 'production',
   apiVersion: '2021-03-25',
-  token: process.env.SANITY_TOKEN,
+  token: process.env.NEXT_PUBLIC_SANITY_DEV_TOKEN,
   useCdn: false,
 })
 

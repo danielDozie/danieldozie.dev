@@ -21,7 +21,7 @@ export async function getStaticProps() {
   const data = await blog
   return {
     props: {
-      data: data,
+      data
   },
 }
 }
