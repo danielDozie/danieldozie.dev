@@ -2,9 +2,6 @@
 import React from 'react'
 import {urlFor} from '../../lib/dataQueries'
 
-type PROPS = {
-  projects: Array<any>,
-}
 
 type ITEMS = {
   _id: string,
@@ -16,7 +13,11 @@ type ITEMS = {
   content: any,
 }
 
-export default function ProjectSection(props: PROPS) {
+type PROJECTPROPS = {
+  projects: ITEMS[],
+}
+
+export default function ProjectSection(props: PROJECTPROPS) {
   const data = props.projects
   return (<>
     {data.map((item:ITEMS) => (

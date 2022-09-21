@@ -20,7 +20,7 @@ const logoQuery = `*[_type == "logo" ]{
     }
   }
 }`
-const logo:any = client.fetch(logoQuery)
+const logo: any = client.fetch(logoQuery)
 
 //menu Query
 const menuQuery = `*[_type == "menu" ]| order(order desc){
@@ -30,7 +30,7 @@ const menuQuery = `*[_type == "menu" ]| order(order desc){
   current
 }
 }`
-const menu:any = client.fetch(menuQuery)
+const menu: any = client.fetch(menuQuery)
 
 const logoAndMenuQuery = `{
   'Logo':*[_type == 'logo']{
@@ -244,4 +244,4 @@ const allwork = `count(*[_type == 'projects'])`
 
 //export data components
 export default defaultEx;
-export {logoAndMenu, homePage, aboutMePage, servicesPage, contactPage, blog, urlFor, menu, logo, digitalPage, brandingPage,uixPage, eComPage, workPageQuery, allwork} 
+export { logoAndMenu, homePage, aboutMePage, servicesPage, contactPage, blog, urlFor, menu, logo, digitalPage, brandingPage, uixPage, eComPage, workPageQuery, allwork } 

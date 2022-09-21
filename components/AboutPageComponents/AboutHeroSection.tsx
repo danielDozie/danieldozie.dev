@@ -1,9 +1,10 @@
+import React from "react";
 
-type Heading = {
+export type Heading = {
     secondaryHeading: string;
     primaryHeading: string;
 }
-export const AboutHeroSection = (props:Heading) => {
+export const AboutHeroSection:JSX.Element = (props:Heading) => {
     return (
         <>
             <div className="flex z-20 items-center mt-40">

@@ -6,4 +6,5 @@ module.exports = {
 		domains: ['cdn.sanity.io']
 	},
     basePath: '',
+    pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
 }

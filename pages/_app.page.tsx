@@ -1,8 +1,8 @@
 import 'tailwindcss/tailwind.css'
 import '../styles/globals.css'
 import { ThemeProvider } from 'tailwind-darkmode-toggle';
-import { Nav } from '../components/Common/Nav'
-import { Footer } from '../components/Common/Footer'
+import { Nav } from '../components/CommonPageComponents/Nav'
+import { Footer } from '../components/CommonPageComponents/Footer'
 
 
 function MyApp({ Component, pageProps }) {

@@ -6,7 +6,6 @@ interface PageStore {
     endPaginateValue: number,
     loadMorePaginateValue: any
 }
-
 const usePageStore = create<PageStore>(devtools(
     set => ({
         initPaginateValue: 0,
