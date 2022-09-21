@@ -4,7 +4,7 @@ export type Heading = {
     secondaryHeading: string;
     primaryHeading: string;
 }
-export const AboutHeroSection:JSX.Element = (props:Heading) => {
+export const AboutHeroSection = (props:Heading):React.ReactElement => {
     return (
         <>
             <div className="flex z-20 items-center mt-40">
