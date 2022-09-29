@@ -1,7 +1,7 @@
 import moment from 'moment'
 import Link from 'next/link'
 import Image from 'next/image'
-import { urlFor } from '../../lib/dataQueries'
+import { urlFor } from '../../../lib/dataQueries'
 
 
 export const BlogPosts = (props: { data: { author: any, excerpts: any, image: any, slug: any, title: any, _createdAt: any, _id: any }[] }) => {
@@ -13,8 +13,7 @@ export const BlogPosts = (props: { data: { author: any, excerpts: any, image: an
         <div>
           <div className="grid grid-cols-1 lg:gap-16 md:gap-8 md:grid-cols-1 lg:mt-0 lg:grid-cols-1  p-4 md:p-10">
               {props.data.map(({ author,excerpts, image, slug, title, _createdAt, _id }) => (
-                <div
-                  className={`flex flex-col md:flex-row md:justify-between py-4 px-4 rounded-lg shadow-2xl  dark:border-gray-600 bottom-2 lg:my-0 my-7`}
+                <div className={`flex flex-col md:flex-row md:justify-between py-4 px-4 rounded-lg shadow-2xl  dark:border-gray-600 bottom-2 lg:my-0 my-7`}
                   key={_id}
                 >
                   <div className="flex h-full bg-center lg:w-2/5 w-full mr-8 mb-4 ">

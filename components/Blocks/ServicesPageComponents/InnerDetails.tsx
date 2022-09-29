@@ -4,7 +4,7 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/outline'
 import {FcBookmark} from 'react-icons/fc'
 import {PortableText} from '@portabletext/react'
-import { servicesDetailsSerializer } from '../../lib/serializers'
+import { servicesDetailsSerializer } from '../../../lib/serializers'
 
 interface Props {
   content: any

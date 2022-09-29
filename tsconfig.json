@@ -26,7 +26,6 @@
     "pages/api/messageHandler.tsx",
     "components/**/*.tsx",
     "components/**/*.js",
-    "pages/services/NOT_USEFUL"
   ],
   "exclude": [
     "node_modules"

@@ -39,7 +39,7 @@ const navigation = [
     },
     {
         name: 'GitHub',
-        href: '#',
+        href: 'https://github.com/danielDozie',
         icon: (props) => (
             <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
                 <path
@@ -62,9 +62,9 @@ export const Footer : React.FC <any> = () => {
                 <div className="flex justify-center space-x-8 md:py-8">
                     {navigation.map((item) => (
                         <div key={item.name}>
-                            <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
+                            <a key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-500">
                                 <span className="sr-only">{item.name}</span>
-                                <item.icon className="h-6 w-6" aria-hidden="true" />
+                                <item.icon className="h-6 w-6" aria-hidden="false" />
                             </a>
                         </div>
                     ))}

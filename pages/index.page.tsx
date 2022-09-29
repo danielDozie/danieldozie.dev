@@ -4,7 +4,7 @@ import LOADER from '../lib/loader'
 import React from 'react'
 
 const Homepage = ({ data }) => {
-  const HOME = React.lazy(() => import('../components/HomePageComponents/Index'))
+  const HOME = React.lazy(() => import('../components/Blocks/HomePageComponents/Index'))
   return (
         <React.Suspense fallback={<LOADER />}>
           <HOME data={data} />

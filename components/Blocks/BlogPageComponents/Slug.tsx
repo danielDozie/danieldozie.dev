@@ -1,9 +1,9 @@
 import { PortableText } from "@portabletext/react"
 import Head from "next/head"
-import { urlFor } from "../../lib/dataQueries"
-import { blogSerializer } from "../../lib/serializers"
+import { urlFor } from "../../../lib/dataQueries"
+import { blogSerializer } from "../../../lib/serializers"
 
-export default function SLUG({blog}) {
+export default function SLUG({blog}):React.ReactElement {
     const backgroundImage = {
         background: `url(${urlFor(blog.image).width(1200).height(600).url()})` + `,` + `linear-gradient(31deg, rgba(31, 41, 55, 0.822), rgba(0, 0, 0, 0.781))`,
         backgroundSize: 'cover',

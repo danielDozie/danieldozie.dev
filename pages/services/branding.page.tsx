@@ -6,8 +6,8 @@ import LOADER from '../../lib/loader';
 
 export default function Index({ data }) {
 
-  const InnerDetails = React.lazy(() => import('../../components/ServicesPageComponents/InnerDetails'));
-  const InnerHeroSection = React.lazy(() => import('../../components/ServicesPageComponents/InnerHeroSection'));
+  const InnerDetails = React.lazy(() => import('../../components/Blocks/ServicesPageComponents/InnerDetails'));
+  const InnerHeroSection = React.lazy(() => import('../../components/Blocks/ServicesPageComponents/InnerHeroSection'));
   return (
     <React.Suspense fallback={<LOADER />}>
       <Head>
