@@ -1,25 +1,28 @@
 import Head from 'next/head';
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
-import { workPageQuery, allwork } from '../../lib/dataQueries';
-import client from '../../lib/sanityClient';
-import usePageStore from '../../store/store';
+import { workPageQuery, allwork } from '../../../lib/dataQueries';
+import client from '../../../lib/sanityClient';
 import ProjectSection from './ProjectSection';
 import WorkHeroSection from './WorkHeroSection';
+import { PaginationContext } from '../../../contexts/paginationContext'
+
+interface LOAD_MORE_PAGINATION {
+    initPaginateValue: number,
+    endPaginateValue: number,
+    loadMorePagination: () => void
+}
 
 export default function WORK() {
-    //setting my app states locally on here and globally on the store //Zustand
-    const [isLoading, setIsLoading] = useState(false);
-    const [isButtonDisplayed, setIsButtonDisplayed] = useState(true);
-    const btnRef = useRef(null)
-    const [project, setProject] = useState([])
-    const initPaginateValue = usePageStore(state => state.initPaginateValue)
-    const endPaginateValue = usePageStore(state => state.endPaginateValue)
-    const loadMorePaginateValue = usePageStore(state => state.loadMorePaginateValue)
-    const [projectCount, setProjectCount] = useState(endPaginateValue)
 
-    //using the inbuilt useEffect hook to fetch the data
-    useEffect(() => {
+    const { initPaginateValue, endPaginateValue, loadMorePagination }: LOAD_MORE_PAGINATION = React.useContext(PaginationContext)
+    
+    const [isLoading, setIsLoading] = React.useState(false);
+    const [isButtonDisplayed, setIsButtonDisplayed] = React.useState(true);
+    const btnRef = React.useRef(null)
+    const [project, setProject] = React.useState([])
+    const [projectCount, setProjectCount] = React.useState(endPaginateValue)
+    React.useEffect(() => {
         const workPage = client.fetch(workPageQuery, { initPaginateValue: initPaginateValue, endPaginateValue: endPaginateValue })
         const result = async () => {
             const res = await workPage
@@ -28,33 +31,39 @@ export default function WORK() {
         }
         result()
     }, [initPaginateValue, endPaginateValue])
-
-    const loadMoreHandler = (event: any) => {
-        event.preventDefault()
+    
+    const loadMoreHandler = (e: { preventDefault: () => void; }) => {
+        e.preventDefault()
         setIsLoading(true)
         setTimeout(() => {
-            loadMorePaginateValue()
+            loadMorePagination()
             setProject(project)
             setIsLoading(false)
         }, 500)
-
     }
 
-    const projects = project.slice(1) //slice the first item as it is the page title elements
-    useEffect(() => {
-        const AllWork = client.fetch(allwork)
-        const data = async () => {
-            const res = await AllWork
-            const result = res
-            setProjectCount(result)
-        }
+    const projects = project.slice(1) //slice out the first item as it is the page title elements
+    React.useEffect(() => {
+        let isLoaded = true
+        if (isLoaded) {
+            const AllWork = client.fetch(allwork)
+            const data = async () => {
+                const res = await AllWork
+                const result = res
+                setProjectCount(result)
+            }
 
-        if (endPaginateValue > projectCount) {
-            setIsButtonDisplayed(false)
-            const btn = btnRef.current
-            btn.style.display = 'none'
+            if (endPaginateValue > projectCount) {
+                setIsButtonDisplayed(false)
+                const btn = btnRef.current
+                btn.style.display = 'none'
+            }
+            data()
         }
-        data()
+        //cleanup
+        return () => {
+            isLoaded = false
+        }
     }, [endPaginateValue, projectCount, projects])
 
     return (
@@ -75,7 +84,6 @@ export default function WORK() {
         </>
     )
 }
-
 
 export function Loading() {
     return (

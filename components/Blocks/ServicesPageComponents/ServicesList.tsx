@@ -1,6 +1,6 @@
  import Link from 'next/link';
 import React from 'react';
-import styles from '../../styles/custom.module.css'
+import styles from '../../../styles/custom.module.css'
 
 type Props = {
         data: Array<Object>,

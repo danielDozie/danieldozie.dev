@@ -3,7 +3,7 @@ import React from 'react'
 import { BlogHeroSection } from './BlogHeroSection'
 import { BlogPosts } from './BlogPosts'
 
-export default function BLOG({data}) {
+export default function BLOG({data}):React.ReactElement {
   return (
       <>
           <Head>

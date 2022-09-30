@@ -4,7 +4,7 @@ import { contactPage } from '../lib/dataQueries';
 import LOADER from '../lib/loader';
 
 export default function Contact({ data }) {
-    const CONTACT = React.lazy(() => import('../components/ContactPageComponents/Index'))
+    const CONTACT = React.lazy(() => import('../components/Blocks/ContactPageComponents/Index'))
     return (
         <React.Suspense fallback={<LOADER />}>
             <CONTACT data={data} />

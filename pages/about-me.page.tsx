@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next';
 import LOADER from '../lib/loader';
 
 export default function About({ data }) {
-    const ABOUT_HERO = React.lazy(() => import('../components/AboutPageComponents/Index'))
+    const ABOUT_HERO = React.lazy(() => import('../components/Blocks/AboutPageComponents/Index'))
     return (
         <React.Suspense fallback={<LOADER />}>
            <ABOUT_HERO data={data} />

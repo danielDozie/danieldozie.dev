@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import LOADER from '../../lib/loader'
 
 export default function Index({ blog }) {
-    const SLUG = React.lazy(() => import('../../components/BlogPageComponents/Slug'))
+    const SLUG = React.lazy(() => import('../../components/Blocks/BlogPageComponents/Slug'))
     return (
         <React.Suspense fallback={<LOADER />}>
             <SLUG blog={blog} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { servicesSerializer } from '../../lib/serializers';
+import { servicesSerializer } from '../../../lib/serializers';
 import {PortableText} from '@portabletext/react'
 
 export default function ServicesContentSection(props: { content: any; }) {

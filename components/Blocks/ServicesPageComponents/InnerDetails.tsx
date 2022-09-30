@@ -4,21 +4,20 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/outline'
 import {FcBookmark} from 'react-icons/fc'
 import {PortableText} from '@portabletext/react'
-import { servicesDetailsSerializer } from '../../lib/serializers'
+import { servicesDetailsSerializer } from '../../../lib/serializers'
 
-interface Props {
+interface DETAILS {
   content: any
   _key: string,
   title: string,
-  data: any,
 }
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function InnerDetails(props: Props) {
-  const items = props.data
+export default function InnerDetails( {data}: any) {
+  const items: DETAILS[] = data[0].services_list
   return (
       
       <div className="px-4 mx-auto max-w-7xl sm:py-16 sm:px-6 lg:px-8">
@@ -28,7 +27,7 @@ export default function InnerDetails(props: Props) {
         <FcBookmark />
         </div>
           <dl className="p-4 space-y-6 divide-y divide-gray-200 shadow-md lg:p-12">
-            {items.map((item : Props) => (
+            {items.map((item : DETAILS) => (
               <Disclosure as="div" key={item._key} className="pt-6 ">
                 {({ open }) => (
                   <>

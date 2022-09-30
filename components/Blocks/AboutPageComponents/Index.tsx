@@ -1,7 +1,7 @@
 import { PortableText } from '@portabletext/react'
 import Head from 'next/head'
 import React from 'react'
-import { aboutMeSerializer } from '../../lib/serializers'
+import { aboutMeSerializer } from '../../../lib/serializers'
 import { AboutHeroSection } from './AboutHeroSection'
 
 export default function ABOUT_HERO({ data }) {

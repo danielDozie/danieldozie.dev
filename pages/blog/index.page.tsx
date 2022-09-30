@@ -3,7 +3,7 @@ import { blog } from '../../lib/dataQueries';
 import LOADER from '../../lib/loader';
 
 export default function index({ data }) {
-  const BLOG = React.lazy(() => import('../../components/BlogPageComponents/Index'))
+  const BLOG = React.lazy(() => import('../../components/Blocks/BlogPageComponents/Index'))
   return ( 
     <React.Suspense fallback={<LOADER />}>
       <BLOG data={data} />
