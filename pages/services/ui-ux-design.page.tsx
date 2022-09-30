@@ -13,7 +13,7 @@ export default function Index({ data }) {
         <title>{process.env.siteTitle + " - " + data[0]?.title} Service</title>
       </Head>
       <InnerHeroSection data={data} />
-      <InnerDetails data={data[0].services_list} _key={''} title={''} content={undefined} />
+      <InnerDetails data={data} />
     </React.Suspense>
   );
 }
