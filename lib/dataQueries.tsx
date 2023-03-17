@@ -226,7 +226,7 @@ const workPageQuery = `*[_type == 'pages' && title == 'Work'] {
 section
 
 } + 
-*[_type == 'projects']| order(order asc)[$initPaginateValue...$endPaginateValue]{
+*[_type == 'projects']| order(order desc)[$initPaginateValue...$endPaginateValue]{
   _id,
   title,
   description,
