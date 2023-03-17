@@ -13,7 +13,7 @@ interface PAGINATION {
 }
 
 export const PaginationProvider = ({ children }) => { 
-    const [initPaginateValue, setInitPaginateValue] = React.useState<PAGINATION['initPaginateValue']>(0)
+    const [initPaginateValue] = React.useState<PAGINATION['initPaginateValue']>(0)
     const [endPaginateValue, setEndPaginateValue] = React.useState<PAGINATION['endPaginateValue']>(5)
     const loadMorePagination:PAGINATION['loadMorePagination'] = () => setEndPaginateValue(endPaginateValue + 3)
     return (
