@@ -27,10 +27,10 @@ export default function ProjectSection(projects: PROJECTPROPS): JSX.Element {
           <Iframe url={item.link}
             width="100%"
             height="100%"
-            id=""
             className="p-4 rounded-[40px]"
             display="block"
-            position="relative" />
+            position="relative"
+            loading="eager" />
         </div>
         <div className="relative px-4 py-8 mx-auto max-w-7xl sm:py-12 sm:px-6 lg:py-16">
           <div className="max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-10">
