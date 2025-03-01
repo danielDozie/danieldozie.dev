@@ -57,7 +57,7 @@ export const Nav  = () => {
               <div
                   className="rounded-md py-2 px-6 flex text-white bg-indigo-600 hover:bg-indigo-700">
                   <a
-                  href="https://docs.google.com/document/d/1K39pFqgdNl9GqoKUnqoyY6vf1z82D5kLJflwy5xBuD0/edit?usp=sharing" target="_blank" rel="noopener noreferrer"
+                  href="https://docs.google.com/document/d/1S449N2nex6TiJ80Ea9zKjWqxgEEGOm-XUxGoBDN-WAk/edit?usp=sharing" target="_blank" rel="noopener noreferrer"
                   >
                     Resume
                   </a>
